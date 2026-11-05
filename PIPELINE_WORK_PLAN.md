@@ -65,6 +65,12 @@ next to this plan, would make it easier to find.
 
 ## Phase 0: Safety net (one session)
 
+**Done November 5, 2026, except the GitHub push, which is waiting on your decision:**
+- Git has two commits: the morning-of-11/05 baseline, then that day's fixes. The
+  `.gitignore` also excludes `*.docx` and `OLD Versions/`, because the how-to doc holds the SAM keys.
+- The root `CLAUDE.md` exists.
+- `replay_week.py` works on both the 10/22 and 11/05 weeks.
+
 1. **Git.** Run `git init` with the `.gitignore` from backlog P0-0, then commit. Box
    sometimes struggles to sync `.git` folders, so also push to a private GitHub
    repo, which gives you a backup that doesn't depend on Box.
