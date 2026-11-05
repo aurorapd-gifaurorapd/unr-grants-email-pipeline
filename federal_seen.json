@@ -1,0 +1,907 @@
+{
+  "20-558": {
+    "first_seen": "2026-09-01",
+    "last_post": "2026-09-01",
+    "title": "PFE: Research Initiation in Engineering Formation (PFE: RIEF)"
+  },
+  "20261209-EDK-EDU": {
+    "first_seen": "2026-09-17",
+    "last_post": "2026-09-17",
+    "title": "Landmarks of History and Culture and Summer Institutes"
+  },
+  "20261209-GE-GI-BP-BR-GGX": {
+    "first_seen": "2026-10-22",
+    "last_post": "2026-10-16",
+    "title": "Public Humanities Projects"
+  },
+  "20270113-CHE": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-11-02",
+    "title": "Endowments for Advancing the Humanities"
+  },
+  "20270113-PJ": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-06",
+    "title": "National Digital Newspaper Program"
+  },
+  "22-537": {
+    "first_seen": "2026-08-25",
+    "last_post": "2026-08-25",
+    "title": "Geospace Environment Modeling (GEM)"
+  },
+  "22-570": {
+    "first_seen": "2026-08-25",
+    "last_post": "2026-08-25",
+    "title": "Solar, Heliospheric, and INterplanetary Environment (SHINE)"
+  },
+  "24-594": {
+    "first_seen": "2026-10-01",
+    "last_post": "2026-09-30",
+    "title": "Science and Technology Centers: Integrative Partnerships"
+  },
+  "25-509": {
+    "first_seen": "2026-08-17",
+    "last_post": "2026-08-17",
+    "title": "Emerging Mathematics in Biology (eMB)"
+  },
+  "25-538": {
+    "first_seen": "2026-08-19",
+    "last_post": "2026-08-19",
+    "title": "Incorporating Human Behavior in Epidemiological Models (IHBEM)"
+  },
+  "26-514": {
+    "first_seen": "2026-08-17",
+    "last_post": "2026-08-17",
+    "title": "Engineering (ENG): Electrical, Communications, and Computing Systems (ECCS)"
+  },
+  "26-515": {
+    "first_seen": "2026-08-17",
+    "last_post": "2026-08-17",
+    "title": "Engineering (ENG): Civil, Mechanical and Manufacturing Innovation (CMMI)"
+  },
+  "26-516": {
+    "first_seen": "2026-08-21",
+    "last_post": "2026-08-21",
+    "title": "Geosciences Core Research: Atmospheric, Geospace, Earth and Ocean Sciences (GEO Core)"
+  },
+  "26-517": {
+    "first_seen": "2026-08-17",
+    "last_post": "2026-08-17",
+    "title": "Core Research in Biological Sciences (BIO Core)"
+  },
+  "26-518": {
+    "first_seen": "2026-08-17",
+    "last_post": "2026-08-17",
+    "title": "Engineering (ENG): Chemical, Bioengineering, Energy, and Transport Systems (CBET)"
+  },
+  "26-519": {
+    "first_seen": "2026-08-17",
+    "last_post": "2026-08-17",
+    "title": "MPS Chemistry Research Programs (MPS Chem)"
+  },
+  "26-520": {
+    "first_seen": "2026-08-17",
+    "last_post": "2026-08-17",
+    "title": "MPS Mathematical Sciences Research Programs (MPS MathSci)"
+  },
+  "26-521": {
+    "first_seen": "2026-08-17",
+    "last_post": "2026-08-17",
+    "title": "MPS Materials Research Programs (MPS Materials)"
+  },
+  "26-522": {
+    "first_seen": "2026-08-17",
+    "last_post": "2026-08-17",
+    "title": "MPS Astronomical Sciences Research Programs (MPS Astro)"
+  },
+  "26-523": {
+    "first_seen": "2026-08-17",
+    "last_post": "2026-08-17",
+    "title": "MPS Physics Research Programs (MPS Physics)"
+  },
+  "26-524": {
+    "first_seen": "2026-08-17",
+    "last_post": "2026-08-17",
+    "title": "EMERGING FRONTIERS IN RESEARCH AND INNOVATION (EFRI-2026/27): Wave-Based Computing ( EFRI-WBC)"
+  },
+  "26-525": {
+    "first_seen": "2026-08-17",
+    "last_post": "2026-08-17",
+    "title": "Expeditions in Computing (Expeditions)"
+  },
+  "DARPARA2701": {
+    "first_seen": "2026-10-22",
+    "last_post": "2026-10-20",
+    "title": "Young Faculty Award (YFA) 2027"
+  },
+  "DE-FOA-0003577": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-05",
+    "title": "Silicon Carbide Cladding Lead Test Rod Development-Phase 1"
+  },
+  "DE-FOA-0003618": {
+    "first_seen": "2026-09-17",
+    "last_post": "2026-08-31",
+    "title": "Staff Support to Tribal Radioactive Materials Transportation Committee for Engagement with the United States (U.S.) Depa"
+  },
+  "DE-FOA-0003630": {
+    "first_seen": "2026-10-22",
+    "last_post": "2026-10-21",
+    "title": "Unlocking New Levels of Output and Capacity for Key Subsurface Resources (UNLOCK)"
+  },
+  "DE-FOA-0003641": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-10-30",
+    "title": "Grid Supply Chain Alternatives to Lead Energy Dominance (SCALED)"
+  },
+  "DE-FOA-0003647": {
+    "first_seen": "2026-09-04",
+    "last_post": "2026-09-04",
+    "title": "Accelerating Scale-up and Pre-piloting of Emerging Chemical Technologies (ASPECT)"
+  },
+  "DE-FOA-0003671": {
+    "first_seen": "2026-09-03",
+    "last_post": "2026-09-03",
+    "title": "Request for Information - Gauging Investor Interest in the Development and Commercialization of Subsurface Energy Techno"
+  },
+  "ED-GRANTS-101526-001": {
+    "first_seen": "2026-10-22",
+    "last_post": "2026-10-16",
+    "title": "Institute of Education Sciences (IES): National Center on Education Research (NCER): From Seedlings to Scale, Assistance"
+  },
+  "ED-GRANTS-101526-002": {
+    "first_seen": "2026-10-22",
+    "last_post": "2026-10-16",
+    "title": "Institute of Education Sciences (IES): National Center for Special Education Research (NCSER): Transformative Research i"
+  },
+  "EPA-I-R1-SNEP-2026A": {
+    "first_seen": "2026-10-22",
+    "last_post": "2026-10-20",
+    "title": "Southeast New England Program (SNEP) Innovative Restoration Grants"
+  },
+  "EPA-OAR-OTAQ-26-01": {
+    "first_seen": "2026-09-24",
+    "last_post": "2026-09-25",
+    "title": "2026 Diesel Emissions Reduction Act (DERA) National Program"
+  },
+  "EPA-OLEM-OBLR-26-06": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-11-02",
+    "title": "FY27 Guidelines for Brownfield Cleanup Grants"
+  },
+  "F26AS00023": {
+    "first_seen": "2026-10-01",
+    "last_post": "2026-09-29",
+    "title": "F26AS00023 FY2026 Prescott Marine Mammal Rescue and Response Grant Program"
+  },
+  "F26AS00088": {
+    "first_seen": "2026-10-22",
+    "last_post": "2026-10-21",
+    "title": "F26AS00088 Endangered Species Conservation &ndash; Wolf Livestock Loss Compensation and Prevention"
+  },
+  "F26AS00105": {
+    "first_seen": "2026-09-17",
+    "last_post": "2026-08-24",
+    "title": "F26AS00105 National Fish Passage Program"
+  },
+  "F26AS00107": {
+    "first_seen": "2026-09-17",
+    "last_post": "2026-08-25",
+    "title": "FY2026 Implementation of the Quagga and Zebra Mussel Action Plan (QZAP) in the Western United States"
+  },
+  "FA955026S0002": {
+    "first_seen": "2026-09-17",
+    "last_post": "2026-08-31",
+    "title": "Air Force Basic Research Sciences Conference and Workshop Support"
+  },
+  "FA955026S0003": {
+    "first_seen": "2026-09-08",
+    "last_post": "2026-09-08",
+    "title": "Air Force Fiscal Year 2027 Young Investigator Program (YIP)"
+  },
+  "FA955027S0001": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-10-29",
+    "title": "AFRL/AFOSR Fiscal Year (FY) 2027 University Center for High-Speed Aerothermoelasticity"
+  },
+  "FA955027S0002": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-10-28",
+    "title": "AFRL/AFOSR-Taiwan NSTC Frontiers in Materials and Nanostructures: AI-Driven Discovery, Quantum Geometry, and Energy-Effi"
+  },
+  "FHWA-WCPP-26-002": {
+    "first_seen": "2026-10-01",
+    "last_post": "2026-09-30",
+    "title": "Fiscal Year 2026 Wildlife Crossings Pilot Program"
+  },
+  "G27AS00037": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-14",
+    "title": "Cooperative Agreement for affiliated Partner with Californian Cooperative Ecosystem Studies Unit"
+  },
+  "G27AS00038": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-11-02",
+    "title": "Cooperative Agreement for affiliated Partner with Rocky Mountain Cooperative Ecosystem Studies Unit"
+  },
+  "G27AS00039": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-11-02",
+    "title": "Cooperative Agreement for affiliated Partner with the Rocky Mountain Cooperative Ecosystem Studies Unit"
+  },
+  "G27AS00040": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-11-02",
+    "title": "Cooperative Agreement for affiliated Partner with the Great Lakes Northern Forrest Cooperative Ecosystem Studies Unit"
+  },
+  "G27AS00042": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-14",
+    "title": "Cooperative Agreement for affiliated Partner with Rocky Mountain Cooperative Ecosystem Studies Unit"
+  },
+  "G27AS00043": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-10-30",
+    "title": "Cooperative Agreement for affiliated Partner with Chesapeake Watershed Cooperative Ecosystem Studies Unit"
+  },
+  "G27AS00044": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-10-30",
+    "title": "Cooperative Agreement for affiliated Partner with Great Basin Cooperative Ecosystem Studies Unit"
+  },
+  "G27AS00045": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-10-30",
+    "title": "Cooperative Agreement for affiliated Partner with Great Basin Cooperative Ecosystem Studies Unit"
+  },
+  "G27AS00046": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-10-30",
+    "title": "Cooperative Agreement for affiliated Partner with Colorado Plateau Cooperative Ecosystem Studies Unit"
+  },
+  "G27AS00048": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-14",
+    "title": "Cooperative Agreement for affiliated Partner with Chesapeake Watershed Cooperative Ecosystem Studies Unit"
+  },
+  "G27AS00049": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-14",
+    "title": "Cooperative Agreement for affiliated Partner with Great Lakes-Northern Forest Cooperative Ecosystem Studies Unit"
+  },
+  "G27AS00051": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-11-02",
+    "title": "Cooperative Agreement for affiliated Partner with Californian Cooperative Ecosystem Studies Unit"
+  },
+  "G27AS00052": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-14",
+    "title": "Cooperative Agreement for affiliated Partner with Northern Great Plains Cooperative Ecosystem Studies Unit"
+  },
+  "G27AS00061": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-10-30",
+    "title": "Cooperative Agreement for affiliated Partner with Hawai&#699;i-Pacific Islands Cooperative Ecosystem Studies Unit"
+  },
+  "G27AS00072": {
+    "first_seen": "2026-10-22",
+    "last_post": "2026-10-14",
+    "title": "Cooperative Agreement for Affiliated Partner with the Rocky Mountains Cooperative Ecosystem Studies Unit (CESU)"
+  },
+  "G27AS00073": {
+    "first_seen": "2026-10-22",
+    "last_post": "2026-10-14",
+    "title": "Cooperative Agreement for Affiliated Partner with the Hawai&#699;i-Pacific Islands Cooperative Ecosystem Studies Unit (C"
+  },
+  "G27AS00074": {
+    "first_seen": "2026-10-22",
+    "last_post": "2026-10-14",
+    "title": "Cooperative Agreement for Affiliated Partner with the Pacific Northwest Cooperative Ecosystem Studies Unit (CESU)"
+  },
+  "G27AS00076": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-10-30",
+    "title": "Cooperative Agreement for affiliated Partner with the Great Plains Cooperative Ecosystem Studies Unit"
+  },
+  "G27AS00077": {
+    "first_seen": "2026-10-22",
+    "last_post": "2026-10-14",
+    "title": "Cooperative Agreement for Affiliated Partner with the North Atlantic Coast Cooperative Ecosystem Studies Unit (CESU)"
+  },
+  "G27AS00078": {
+    "first_seen": "2026-10-22",
+    "last_post": "2026-10-14",
+    "title": "Cooperative Agreement for Affiliated Partner with the Pacific Northwest Cooperative Ecosystem Studies Unit (CESU)"
+  },
+  "G27AS00079": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-14",
+    "title": "Cooperative Agreement for Affiliated Partner with the Great Lakes-Northern Forest Cooperative Ecosystem Studies Unit (CE"
+  },
+  "G27AS00080": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-14",
+    "title": "Cooperative Agreement for Affiliated Partner with the Colorado Plateau Cooperative Ecosystem Studies Unit (CESU)"
+  },
+  "G27AS00081": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-10-30",
+    "title": "Cooperative Agreement for affiliated Partner with the Californian Cooperative Ecosystem Studies Unit"
+  },
+  "G27AS00082": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-10-30",
+    "title": "Cooperative Agreement for affiliated Partner with the Chesapeake Watershed Cooperative Ecosystem Studies Unit"
+  },
+  "G27AS00083": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-10-30",
+    "title": "Cooperative Agreement for affiliated Partner with the Great Lakes-Northern Forest Cooperative Ecosystem Studies Unit"
+  },
+  "G27AS00084": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-10-30",
+    "title": "Cooperative Agreement for affiliated Partner with the Colorado Plateau Cooperative Ecosystem Studies Unit"
+  },
+  "G27AS00085": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-10-30",
+    "title": "Cooperative Agreement for affiliated Partner with the Pacific Northwest Cooperative Ecosystem Studies Unit"
+  },
+  "G27AS00090": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-11-02",
+    "title": "Cooperative Agreement for affiliated Partner with the Californian Cooperative Ecosystem Studies Unit"
+  },
+  "G27AS00164": {
+    "first_seen": "2026-10-01",
+    "last_post": "2026-09-30",
+    "title": "WATER RESOURCES RESEARCH ACT PROGRAM NATIONAL COMPETITIVE GRANTS FY2026 (104g General)"
+  },
+  "G27AS00165": {
+    "first_seen": "2026-10-01",
+    "last_post": "2026-10-01",
+    "title": "Cooperative Agreement for Affiliated Partner with the Southern Appalachian Cooperative Ecosystem Studies Unit (CESU)"
+  },
+  "G27AS00166": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-10-30",
+    "title": "Cooperative Agreement for affiliated Partner with the Great Rivers Cooperative Ecosystem Studies Unit"
+  },
+  "G27AS00381": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-11-02",
+    "title": "USGS Cooperative Landslide Hazard Mapping and Assessment Program Announcement for Fiscal Year 2027"
+  },
+  "HR001126S0015": {
+    "first_seen": "2026-09-17",
+    "last_post": "2026-08-28",
+    "title": "Defense Sciences Office (DSO) Office-wide BAA"
+  },
+  "HT942526BCRPBTA122": {
+    "first_seen": "2026-09-03",
+    "last_post": "2026-09-03",
+    "title": "DoW Breast Cancer, Breakthrough Award Levels 1 and 2"
+  },
+  "HT942526BCRPCREA2": {
+    "first_seen": "2026-09-03",
+    "last_post": "2026-09-03",
+    "title": "DoW Breast Cancer, Clinical Research Extension Award"
+  },
+  "HT942526RTRPIIRA": {
+    "first_seen": "2026-08-26",
+    "last_post": "2026-08-26",
+    "title": "DoW Reconstructive Transplant, Investigator-Initiated Research Award"
+  },
+  "N0001426SF002": {
+    "first_seen": "2026-09-24",
+    "last_post": "2026-09-21",
+    "title": "Fiscal Year (FY) 2027 Department of War Multidisciplinary Research Program of the University Research Initiative (MURI)"
+  },
+  "N0001426SF004": {
+    "first_seen": "2026-08-17",
+    "last_post": "2026-08-17",
+    "title": "ONR FY27 NOFO for Young Investigator Program"
+  },
+  "NHTSA-693JJ927R000007-FY27": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-11-04",
+    "title": "State Process for Informing Consumers of Recalls Program"
+  },
+  "NNH27ZHA001C": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-10-30",
+    "title": "Established Program to Stimulate Competitive Research (EPSCoR) Basic Research"
+  },
+  "NOFOAFRLAFOSR20260002": {
+    "first_seen": "2026-09-24",
+    "last_post": "2026-09-21",
+    "title": "Fiscal Year (FY) 2027 Department of War (DoW) Multidisciplinary Research Program of the University Research Initiative ("
+  },
+  "O-NIJ-2026-172796": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-09",
+    "title": "NIJ FY 2026 Research and Evaluation on School Safety"
+  },
+  "O-NIJ-2026-172798": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-09",
+    "title": "NIJ FY 2026 Evaluation of the Effectiveness of the Bureau of Justice Assistance (BJA) Byrne State Crisis Intervention Pr"
+  },
+  "O-NIJ-2026-172799": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-09",
+    "title": "NIJ FY 2026 Research and Evaluation on Human Trafficking"
+  },
+  "O-NIJ-2026-172800": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-09",
+    "title": "NIJ FY 2026 Research and Evaluation on Justice System Responses to Illegal Immigration"
+  },
+  "O-NIJ-2026-172801": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-09",
+    "title": "NIJ FY 2026 Crime and Justice Research"
+  },
+  "O-NIJ-2026-172802": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-09",
+    "title": "NIJ FY 2026 Research on Gender Dysphoria and Violent Crime"
+  },
+  "O-NIJ-2026-172804": {
+    "first_seen": "2026-10-22",
+    "last_post": "2026-10-22",
+    "title": "NIJ FY 2026 Research on the Abuse, Neglect, and Exploitation of Elderly Individuals"
+  },
+  "O-NIJ-2026-172805": {
+    "first_seen": "2026-10-22",
+    "last_post": "2026-10-22",
+    "title": "NIJ FY 2026 Research and Evaluation on Drones as First Responders"
+  },
+  "O-NIJ-2026-172806": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-10-22",
+    "title": "NIJ FY 2026 Research and Evaluation on Violent Crime: Gangs and Organized Criminal Groups (Domestic and Transnational)"
+  },
+  "PA-27-061": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-14",
+    "title": "NIH Research Program Projects (Parent P01 Clinical Trial Optional)"
+  },
+  "PAR-27-003": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-14",
+    "title": "Collaborative Program Grant for Interdisciplinary Teams (RM1 Clinical Trial Optional)"
+  },
+  "PAR-27-045": {
+    "first_seen": "2026-10-01",
+    "last_post": "2026-09-28",
+    "title": "HEAL Initiative: Whole Joint Health Program (R61/R33 Clinical Trial Required)"
+  },
+  "PAR-27-051": {
+    "first_seen": "2026-09-01",
+    "last_post": "2026-09-01",
+    "title": "NIH Brain Development Cohorts (NBDC) and&nbsp;Population Assessment of Tobacco and Health (PATH) Study&nbsp;Biospecimen "
+  },
+  "PAR-27-053": {
+    "first_seen": "2026-08-31",
+    "last_post": "2026-08-31",
+    "title": "Exploratory Clinical Neuroscience Research on Substance Use Disorders (R61/R33 Clinical Trial Optional)"
+  },
+  "PAR-27-054": {
+    "first_seen": "2026-08-19",
+    "last_post": "2026-08-19",
+    "title": "Limited Competition: Centers of Biomedical Research Excellence: Development Phase (COBRE-D) (P30 - Clinical Trial Not Al"
+  },
+  "PAR-27-056": {
+    "first_seen": "2026-08-19",
+    "last_post": "2026-08-19",
+    "title": "Limited Competition: Institutional Development Award (IDeA) for Clinical &amp; Translational Research (CTR) (P30 - CT Op"
+  },
+  "PAR-27-065": {
+    "first_seen": "2026-08-31",
+    "last_post": "2026-08-31",
+    "title": "NINDS Efficacy and Exploratory Clinical Trials (UG3/UH3 - Clinical Trial Required)"
+  },
+  "PAR-27-068": {
+    "first_seen": "2026-08-31",
+    "last_post": "2026-08-31",
+    "title": "Limited Competition: NIGMS Mature Synchrotron Resources (MSR) for Structural Biology (P30 - Clinical Trial Not Allowed)"
+  },
+  "PAR-27-076": {
+    "first_seen": "2026-08-31",
+    "last_post": "2026-08-31",
+    "title": "Lasker Clinical Research Scholar's Program (Si2/R00 Clinical Trial Optional)"
+  },
+  "PAR-27-090": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-14",
+    "title": "Palliative Care Research Across the Lifespan: Leveraging the Palliative Care Consortium (R01 Clinical Trial Optional)"
+  },
+  "PAR-27-096": {
+    "first_seen": "2026-09-01",
+    "last_post": "2026-09-01",
+    "title": "Grants for Early Medical/Surgical Specialists' Transition to Aging Research (GEMSSTAR) (R03 Clinical Trial Optional)"
+  },
+  "PAR-27-112": {
+    "first_seen": "2026-09-01",
+    "last_post": "2026-09-01",
+    "title": "Paul B. Beeson Emerging Leaders Career Development Award in Aging (K76 Clinical Trial Not Allowed)"
+  },
+  "PAR-27-127": {
+    "first_seen": "2026-09-01",
+    "last_post": "2026-09-01",
+    "title": "Silvio O. Conte Centers for Basic Neuroscience or Translational Mental Health Research (P50 Clinical Trial Optional)"
+  },
+  "PAR-28-014": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-14",
+    "title": "Early-Onset Cancers: Investigating Etiology, Mechanisms, and Early Detection Strategies (RP1 Clinical Trials Optional)"
+  },
+  "PAR-28-022": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-14",
+    "title": "Specialized Programs of Research Excellence (SPOREs) in Human Cancers for Years 2027, 2028, and 2029 (P50 Clinical Trial"
+  },
+  "PAR-28-042": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-11-03",
+    "title": "Assay Validation of High Quality Markers for Clinical Studies in Cancer (UH2/UH3 Clinical Trial Not Allowed)"
+  },
+  "PAR-28-056": {
+    "first_seen": "2026-10-01",
+    "last_post": "2026-09-25",
+    "title": "Pancreatic Cancer Detection Consortium: Research Units (U01 Clinical Trial Optional)"
+  },
+  "PAR-28-057": {
+    "first_seen": "2026-10-01",
+    "last_post": "2026-09-25",
+    "title": "Pancreatic Cancer Detection Consortium: Management and Data Coordination Unit (U24 Clinical Trial Not Allowed)"
+  },
+  "PAR-28-062": {
+    "first_seen": "2026-08-31",
+    "last_post": "2026-08-31",
+    "title": "Cancer Advancement through Partnerships in Research and Infrastructure (CAPRI) (U54 Clinical Trial Optional)"
+  },
+  "PAR-28-063": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-11-03",
+    "title": "NCI Research Specialist (Clinician Scientist) Award (R50 Clinical Trial Not Allowed)"
+  },
+  "PAR-28-072": {
+    "first_seen": "2026-10-01",
+    "last_post": "2026-09-25",
+    "title": "NEI Translational Research Program for Therapeutics (R61/R33 Clinical Trial Not Allowed)"
+  },
+  "PAR-28-090": {
+    "first_seen": "2026-10-22",
+    "last_post": "2026-10-16",
+    "title": "Centers for AIDS Research (CFAR) and Developmental Centers for AIDS Research (D-CFAR) (P30 Clinical Trial Not Allowed)"
+  },
+  "PAR-28-091": {
+    "first_seen": "2026-10-22",
+    "last_post": "2026-10-15",
+    "title": "Assessing the Feasibility of Incorporating Mechanisms in Multi-site Clinical Trials of Mind and Body Interventions on Wh"
+  },
+  "PAR-28-093": {
+    "first_seen": "2026-10-22",
+    "last_post": "2026-10-19",
+    "title": "Pilot and Feasibility Studies in Preparation for Substance Use and HIV Prevention Intervention and Services Research Tri"
+  },
+  "RFA-AA-28-001": {
+    "first_seen": "2026-10-22",
+    "last_post": "2026-10-15",
+    "title": "Specialized Alcohol Research Centers (P50 Clinical trial Optional)"
+  },
+  "RFA-AG-27-010": {
+    "first_seen": "2026-09-01",
+    "last_post": "2026-09-01",
+    "title": "Data Coordinating Center for the Aging and Alzheimer&rsquo;s Disease Mouse Brain Atlas (AD-MBA) (U24 Clinical Trial Not "
+  },
+  "RFA-AI-27-002": {
+    "first_seen": "2026-09-01",
+    "last_post": "2026-09-01",
+    "title": "Infectious Diseases Clinical Trials Network (IDCTN) (UM1 Clinical Trial Required)"
+  },
+  "RFA-AI-27-005": {
+    "first_seen": "2026-09-01",
+    "last_post": "2026-09-01",
+    "title": "Clinical Research Network on Antimicrobial Resistance (UM1 Clinical Trial Required)"
+  },
+  "RFA-AI-27-014": {
+    "first_seen": "2026-09-01",
+    "last_post": "2026-09-01",
+    "title": "Development of Candidate Medical Countermeasures (MCMs) and Technologies Against Radiological/Nuclear or Chemical Threat"
+  },
+  "RFA-AI-27-018": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-06",
+    "title": "Implementation Science to Advance HIV Prevention, Treatment, and Care (R61/R33 Clinical Trial Optional)"
+  },
+  "RFA-AI-28-005": {
+    "first_seen": "2026-10-22",
+    "last_post": "2026-10-20",
+    "title": "Immune Tolerance Network (UM1 Clinical Trial Required)"
+  },
+  "RFA-AI-28-012": {
+    "first_seen": "2026-10-22",
+    "last_post": "2026-10-20",
+    "title": "Translational Centers Using Microphysiological Systems for Infectious Diseases (U54 Clinical Trial Not Allowed)"
+  },
+  "RFA-AI-28-014": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-11-04",
+    "title": "Systems Biology of Infection and Inflammation in Chronic Diseases (U19 Clinical Trial Not Allowed)"
+  },
+  "RFA-AI-28-024": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-13",
+    "title": "Accelerating Research and Development of Next Generation Vaccines against Malaria - a Model for Mosquito-Borne Diseases "
+  },
+  "RFA-AI-28-031": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-02",
+    "title": "Centers for Structural Biology of HIV and Other Infectious Diseases (U54 Clinical Trial Not Allowed)"
+  },
+  "RFA-AR-28-001": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-09",
+    "title": "NIAMS P30 Centers Program (P30 - Clinical Trial Not Allowed)"
+  },
+  "RFA-CA-27-005": {
+    "first_seen": "2026-08-31",
+    "last_post": "2026-08-31",
+    "title": "Glioblastoma Therapeutics Network (GTN) (U19 Clinical Trial Required)"
+  },
+  "RFA-CA-28-004": {
+    "first_seen": "2026-10-22",
+    "last_post": "2026-10-15",
+    "title": "Limited Competition: Biospecimen Banks to support NCI National Clinical Trials Network Biospecimen Banks (NCTN Biobanks)"
+  },
+  "RFA-CA-28-013": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-09",
+    "title": "Carcinogen Hazard Assessment Monographs Program (CHAMP) (R01 Clinical Trial Not Allowed)"
+  },
+  "RFA-DA-28-011": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-06",
+    "title": "HEAL Initiative: Integrative Management of Chronic Pain and OUD for Whole Recovery (IMPOWR): Research Centers (RM1 Clini"
+  },
+  "RFA-DA-28-012": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-06",
+    "title": "HEAL Initiative: Integrative Management of chronic Pain and OUD for Whole Recovery (IMPOWR) - Building Engagement, Assis"
+  },
+  "RFA-DA-28-013": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-09",
+    "title": "Neural Ensembles &amp; Used Substances (NExUS) Collaboratory: Building a Multimodal Inventory of Cell Ensembles Encoding"
+  },
+  "RFA-DC-28-001": {
+    "first_seen": "2026-10-22",
+    "last_post": "2026-10-20",
+    "title": "National Resource Network for the Study of Human Auditory and Vestibular Disorders (U24 Clinical Trial Not Allowed)"
+  },
+  "RFA-DC-28-002": {
+    "first_seen": "2026-10-22",
+    "last_post": "2026-10-20",
+    "title": "Coordinating Center for National Resource Network for the Study of Human Auditory and Vestibular Disorders (U24 Clinical"
+  },
+  "RFA-DK-27-112": {
+    "first_seen": "2026-08-31",
+    "last_post": "2026-08-31",
+    "title": "Single Source for the Continuation of the Epidemiology of Diabetes Interventions and Complications (EDIC) Study Research"
+  },
+  "RFA-DK-27-122": {
+    "first_seen": "2026-10-22",
+    "last_post": "2026-10-15",
+    "title": "Single Source for the Continuation of the Physiology of the Weight Reduced State (POWERS) Study (U01- Clinical Trials Re"
+  },
+  "RFA-DK-27-125": {
+    "first_seen": "2026-08-31",
+    "last_post": "2026-08-31",
+    "title": "Limited Competition for the Continuation of the Caring for OutPatiEnts after Acute Kidney Injury (COPE-AKI) Clinical Cen"
+  },
+  "RFA-DK-27-127": {
+    "first_seen": "2026-08-31",
+    "last_post": "2026-08-31",
+    "title": "Cooperative Centers for Experimental Hematology (CCEHs) (U54- Clinical Trial Not Allowed)"
+  },
+  "RFA-DK-27-139": {
+    "first_seen": "2026-08-31",
+    "last_post": "2026-08-31",
+    "title": "Single Source for the Continuation of the Caring for OutPatiEnts after Acute Kidney Injury (COPE-AKI) Scientific and Dat"
+  },
+  "RFA-DK-28-213": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-11-03",
+    "title": "The NIDDK Disorders of Gastrointestinal Interoception Consortium (DGIC) - Clinical Research Centers (U01 Clinical Trial "
+  },
+  "RFA-DK-28-214": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-11-03",
+    "title": "The NIDDK Disorders of Gastrointestinal Interoception Consortium (DGIC) Scientific Data Research Center (U24 Clinical Tr"
+  },
+  "RFA-DK-28-314": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-11-03",
+    "title": "George M. O&rsquo;Brien Urology Cooperative Research Centers Program (U54 Clinical Trial Optional)"
+  },
+  "RFA-EB-28-004": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-10-23",
+    "title": "NextTech: Translational Development of Next-Generation Diagnostic and Therapeutic Devices (R18 Clinical Trial Not Allowe"
+  },
+  "RFA-HG-27-007": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-09",
+    "title": "Systematic Characterization of Genomic Variation to Assess Effects of Individual Variants on Genome Function and Phenoty"
+  },
+  "RFA-HG-27-008": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-09",
+    "title": "IGVF Data and Coordinating Center (U24 Clinical trials Not Allowed)"
+  },
+  "RFA-HG-27-009": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-09",
+    "title": "Genomic Variant Interactions With Other Variants Or The Environment (UM1 Clinical Trials Not Allowed)"
+  },
+  "RFA-HG-27-010": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-09",
+    "title": "Computational Modeling and Analysis of the Impact of Genomic Variation on Function (UM1, Clinical Trial Not Allowed)"
+  },
+  "RFA-HL-27-010": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-09",
+    "title": "Limited Competition: Stimulating Access to Research in Residency Transition Scholar (StARRTS) (K38 Clinical Trial Not Al"
+  },
+  "RFA-LM-28-001": {
+    "first_seen": "2026-10-22",
+    "last_post": "2026-10-16",
+    "title": "NLM Institutional Grants for Research Training in Biomedical Informatics, Data Science, and AI (T15 Independent Clinical"
+  },
+  "RFA-MH-27-125": {
+    "first_seen": "2026-10-01",
+    "last_post": "2026-09-30",
+    "title": "Mechanistic Evaluation of Therapeutic Targets derived from Treatable Traits to Improve CNS Outcomes in People with HIV ("
+  },
+  "RFA-MH-28-145": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-11-03",
+    "title": "Research on System Support and Tools for Provider Training and Quality Monitoring for Suicide Preventive Care (RP1- Clin"
+  },
+  "RFA-NS-27-002": {
+    "first_seen": "2026-08-31",
+    "last_post": "2026-08-31",
+    "title": "BRAIN Initiative: Integrative Team-Research BRAIN Circuits Program - iBCP (RM1 Clinical Trial Not Allowed)"
+  },
+  "RFA-NS-28-010": {
+    "first_seen": "2026-10-01",
+    "last_post": "2026-09-30",
+    "title": "BRAIN Initiative: Research Opportunities Using Invasive Neural Recording and Stimulating Technologies in the Human Brain"
+  },
+  "RFA-NS-28-012": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-11-03",
+    "title": "Genomic and Biologic Therapies for ADRD (U01 Clinical Trial Optional)"
+  },
+  "RFA-OD-27-009": {
+    "first_seen": "2026-09-24",
+    "last_post": "2026-09-24",
+    "title": "Limited Competition: NIH Research Evaluation and Commercialization Hubs (REACH) (SB0 Clinical Trial Optional)"
+  },
+  "RFA-RM-27-007": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-09",
+    "title": "Cellular Senescence Network (SenNet): SenNet Technology Projects (SenTecs) (UG3/UH3 Clinical Trial Not Allowed)"
+  },
+  "RFA-RM-27-008": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-10-29",
+    "title": "Genomic Data Generation Center for the Gabriella Miller Kids First Pediatric Research Program (U24 Clinical Trial Not Al"
+  },
+  "RFA-RM-27-009": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-10-29",
+    "title": "Single Source: Continued Development of the Gabriella Miller Kids First Pediatric Data Resource Center (U2C Clinical Tri"
+  },
+  "RFA-RM-27-010": {
+    "first_seen": "2026-11-05",
+    "last_post": "2026-10-29",
+    "title": "Gabriella Miller Kids First Training and Outreach Core (U24 Clinical Trial Not Allowed)"
+  },
+  "RFA-RM-27-016": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-09",
+    "title": "Cellular Senescence Network (SenNet): Discovery, Validation Centers (UM1 Clinical Trials Not Allowed)"
+  },
+  "RFA-RM-27-024": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-08",
+    "title": "Pilot Projects to Enhance the Human Virome Program (R03 Clinical Trials Not Allowed)"
+  },
+  "RFA-RM-27-025": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-09",
+    "title": "Cellular Senescence Network (SenNet): SenNet Data Coordination and Integration Center (SenNet DCIC) (UM1 Clinical Trials"
+  },
+  "SB-OEDSB-27-001": {
+    "first_seen": "2026-10-22",
+    "last_post": "2026-10-20",
+    "title": "FY27 Small Business Development Center State of Kansas Network Rebid"
+  },
+  "USDA-NHQ-ACEP-26-NOFO0001456": {
+    "first_seen": "2026-10-01",
+    "last_post": "2026-09-25",
+    "title": "Easement Restoration and Stewardship"
+  },
+  "USDA-NIFA-ARPA-012381": {
+    "first_seen": "2026-08-20",
+    "last_post": "2026-08-20",
+    "title": "Agriculture Risk Management Education Partnerships Competitive Grants Program"
+  },
+  "USDA-NIFA-CBGP-011698": {
+    "first_seen": "2026-09-03",
+    "last_post": "2026-09-03",
+    "title": "1890 Institution Teaching, Research, and Extension Capacity Building Grants Program"
+  },
+  "USDA-NIFA-ES-011939": {
+    "first_seen": "2026-08-19",
+    "last_post": "2026-08-19",
+    "title": "Food and Agriculture Defense Initiative Extension Disaster Education Network"
+  },
+  "USDA-NIFA-HEP-011737": {
+    "first_seen": "2026-08-13",
+    "last_post": "2026-08-13",
+    "title": "Food and Agricultural Sciences National Needs Graduate and Postgraduate Fellowships"
+  },
+  "USDA-NIFA-HSI-011903": {
+    "first_seen": "2026-09-17",
+    "last_post": "2026-09-10",
+    "title": "Hispanic-Serving Institutions Education Grants Program"
+  },
+  "USDA-NIFA-NLGCA-011938": {
+    "first_seen": "2026-08-26",
+    "last_post": "2026-08-26",
+    "title": "Capacity Building Grants for Non-Land-Grant Colleges of Agriculture Program"
+  },
+  "USDA-NIFA-SBIR-012221": {
+    "first_seen": "2026-10-14",
+    "last_post": "2026-10-01",
+    "title": "Small Business Innovation Research and Small Business Technology Transfer Programs Phase II"
+  },
+  "USDA-NIFA-SCRI-012018": {
+    "first_seen": "2026-09-02",
+    "last_post": "2026-09-02",
+    "title": "Emergency Citrus Disease Research and Extension Pre-Applications"
+  },
+  "USDA-NIFA-SLBCD-012281": {
+    "first_seen": "2026-09-02",
+    "last_post": "2026-09-02",
+    "title": "Tribal Colleges Extension Program Special Emphasis"
+  },
+  "USDA-NIFA-TCEG-011837": {
+    "first_seen": "2026-08-24",
+    "last_post": "2026-08-24",
+    "title": "Tribal Colleges Education Equity Grants Program"
+  },
+  "W911NF-27-R-A001": {
+    "first_seen": "2026-10-01",
+    "last_post": "2026-09-30",
+    "title": "The Science, Mathematics and Research for Transformation (SMART) Scholarship for Service Program Cooperative Agreement"
+  },
+  "W911NF26S0105": {
+    "first_seen": "2026-09-17",
+    "last_post": "2026-08-27",
+    "title": "Research and Education Program for Historically Black Colleges and Universities (HBCU) and Tribal Colleges and Universit"
+  },
+  "W911NF26S1000": {
+    "first_seen": "2026-09-24",
+    "last_post": "2026-09-21",
+    "title": "Fiscal Year (FY) 2027 Department of War (DoW) Multidisciplinary Research Program of the University Research Initiative ("
+  }
+}

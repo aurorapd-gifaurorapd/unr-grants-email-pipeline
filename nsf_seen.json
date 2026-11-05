@@ -1,0 +1,117 @@
+{
+  "https://www.nsf.gov/funding/opportunities/astro-core-astronomical-sciences-core-research": {
+    "first_seen": "2026-10-01",
+    "last_pub": "2026-09-21",
+    "title": "Astronomical Sciences Core Research (Astro-Core)"
+  },
+  "https://www.nsf.gov/funding/opportunities/astro-innovations-astronomical-sciences-innovations": {
+    "first_seen": "2026-10-01",
+    "last_pub": "2026-09-25",
+    "title": "Astronomical Sciences Innovations (Astro-Innovations)"
+  },
+  "https://www.nsf.gov/funding/opportunities/ati-astronomical-sciences-technology-instrumentation": {
+    "first_seen": "2026-10-01",
+    "last_pub": "2026-09-21",
+    "title": "Astronomical Sciences Technology and Instrumentation (ATI)"
+  },
+  "https://www.nsf.gov/funding/opportunities/bi-bioinnovation-infrastructure": {
+    "first_seen": "2026-09-08",
+    "last_pub": "2026-08-14",
+    "title": "Bioinnovation and Infrastructure (BI)"
+  },
+  "https://www.nsf.gov/funding/opportunities/bio-core-core-research-biological-sciences": {
+    "first_seen": "2026-09-08",
+    "last_pub": "2026-08-13",
+    "title": "Core Research in Biological Sciences (BIO Core)"
+  },
+  "https://www.nsf.gov/funding/opportunities/cmmt-condensed-matter-materials-theory": {
+    "first_seen": "2026-09-08",
+    "last_pub": "2026-08-19",
+    "title": "Condensed Matter and Materials Theory (CMMT)"
+  },
+  "https://www.nsf.gov/funding/opportunities/dcl-supplemental-funding-requests-support-super-intelligence-si": {
+    "first_seen": "2026-11-05",
+    "last_pub": "2026-10-27",
+    "title": "Supplemental Funding Requests to Support Super Intelligence (SI) Innovation in the Presidential SI Challenge"
+  },
+  "https://www.nsf.gov/funding/opportunities/eccs-engineering-electrical-communications-computing-systems": {
+    "first_seen": "2026-09-08",
+    "last_pub": "2026-08-12",
+    "title": "Engineering : Electrical, Communications, and Computing Systems (ECCS)"
+  },
+  "https://www.nsf.gov/funding/opportunities/efri-wbc-emerging-frontiers-research-innovation-efri-wave-based": {
+    "first_seen": "2026-09-08",
+    "last_pub": "2026-08-13",
+    "title": "EMERGING FRONTIERS IN RESEARCH AND INNOVATION (EFRI): Wave-Based Computing (WBC) ( EFRI-WBC)"
+  },
+  "https://www.nsf.gov/funding/opportunities/engineering-eng-chemical-bioengineering-energy-transport": {
+    "first_seen": "2026-09-08",
+    "last_pub": "2026-08-13",
+    "title": "Engineering (ENG): Chemical, Bioengineering, Energy, and Transport Systems (CBET)"
+  },
+  "https://www.nsf.gov/funding/opportunities/engineering-eng-civil-mechanical-manufacturing-innovation": {
+    "first_seen": "2026-09-08",
+    "last_pub": "2026-08-13",
+    "title": "Engineering (ENG): Civil, Mechanical, and Manufacturing Innovation (CMMI)"
+  },
+  "https://www.nsf.gov/funding/opportunities/expeditions-expeditions-computing": {
+    "first_seen": "2026-09-08",
+    "last_pub": "2026-08-13",
+    "title": "Expeditions in Computing (Expeditions)"
+  },
+  "https://www.nsf.gov/funding/opportunities/fl-foundations-life": {
+    "first_seen": "2026-09-08",
+    "last_pub": "2026-08-14",
+    "title": "Foundations of Life (FL)"
+  },
+  "https://www.nsf.gov/funding/opportunities/geo-core-geosciences-core-research-atmospheric-geospace-earth-ocean": {
+    "first_seen": "2026-09-08",
+    "last_pub": "2026-08-13",
+    "title": "Geosciences Core Research: Atmospheric, Geospace, Earth and Ocean Sciences (GEO Core)"
+  },
+  "https://www.nsf.gov/funding/opportunities/grfp-nsf-graduate-research-fellowship-program": {
+    "first_seen": "2026-09-08",
+    "last_pub": "2026-08-25",
+    "title": "NSF Graduate Research Fellowship Program (GRFP)"
+  },
+  "https://www.nsf.gov/funding/opportunities/ls-living-systems": {
+    "first_seen": "2026-09-08",
+    "last_pub": "2026-08-14",
+    "title": "Living Systems (LS)"
+  },
+  "https://www.nsf.gov/funding/opportunities/mps-astro-mps-astronomical-sciences-research-programs": {
+    "first_seen": "2026-09-08",
+    "last_pub": "2026-08-13",
+    "title": "MPS Astronomical Sciences Research Programs (MPS Astro)"
+  },
+  "https://www.nsf.gov/funding/opportunities/mps-chem-mps-chemistry-research-programs": {
+    "first_seen": "2026-09-08",
+    "last_pub": "2026-08-13",
+    "title": "MPS Chemistry Research Programs (MPS Chem)"
+  },
+  "https://www.nsf.gov/funding/opportunities/mps-materials-mps-materials-research-programs": {
+    "first_seen": "2026-09-08",
+    "last_pub": "2026-08-13",
+    "title": "MPS Materials Research Programs (MPS Materials)"
+  },
+  "https://www.nsf.gov/funding/opportunities/mps-mathsci-mps-mathematical-sciences-research-programs": {
+    "first_seen": "2026-09-08",
+    "last_pub": "2026-08-13",
+    "title": "MPS Mathematical Sciences Research Programs (MPS MathSci)"
+  },
+  "https://www.nsf.gov/funding/opportunities/mps-physics-mps-physics-research-programs": {
+    "first_seen": "2026-09-08",
+    "last_pub": "2026-08-13",
+    "title": "MPS Physics Research Programs (MPS Physics)"
+  },
+  "https://www.nsf.gov/funding/opportunities/ms-frg-mathematical-sciences-focused-research-groups": {
+    "first_seen": "2026-09-08",
+    "last_pub": "2026-08-14",
+    "title": "Mathematical Sciences Focused Research Groups (MS-FRG)"
+  },
+  "https://www.nsf.gov/funding/opportunities/ms-rtg-mathematical-sciences-research-training-groups": {
+    "first_seen": "2026-09-08",
+    "last_pub": "2026-08-14",
+    "title": "Mathematical Sciences Research Training Groups (MS-RTG)"
+  }
+}

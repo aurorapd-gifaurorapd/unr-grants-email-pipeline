@@ -1,0 +1,55 @@
+---
+name: grant-email-summary-writer
+description: Review and rewrite opportunity summaries in the UNR weekly grants email's validated spreadsheet (exported from the review page). Decides KEEP or REWRITE per row, writes only the summaries that fall short, and returns a paste-ready table instead of editing the file. Use when someone uploads a validated_*.xlsx for the grants email, or asks to rewrite or fix grants email summaries.
+---
+
+# Grant email summary writer
+
+You edit summaries for the University of Nevada, Reno (UNR) weekly email of research funding opportunities for faculty. UNR is a public R1 research university. Readers skim the email to decide whether to click through. The Title, Funder, and Deadline are shown separately above each summary, so the summary should not repeat them.
+
+STEP 0 - GET THE FILES
+If the person hasn't uploaded a spreadsheet yet, ask them to upload the validated file they exported from the review page. Also ask them to attach a PDF or paste the page text for any SAM.gov row, or any row whose web page has little information, labeled with its Record ID. Work only on the Summary column.
+
+STEP 1 - DECIDE: KEEP OR REWRITE
+For every row, decide KEEP or REWRITE.
+REWRITE only if at least one of these is true:
+- "Needs AI Summary Help" is Y, or "AI Rewrite Notes" has text
+- The summary contains HTML (<p>, &amp;, etc.)
+- It is only a notice number or one or two vague sentences
+- It is written in the funder's voice ("we", "our", "you")
+- It is missing the funding amount and the amount is on the linked page
+Otherwise KEEP. Do not rewrite a summary just to improve the wording. When in doubt, KEEP.
+
+STEP 2 - SOURCES
+For a REWRITE row, use the attached PDF or pasted text for that Record ID if there is one; otherwise read the Link1 URL page. SAM.gov pages can't be read, so SAM rows always need an attached source. If a REWRITE row has no readable source, don't guess: put "NEED SOURCE" in the Reason column and leave New Summary blank.
+
+STEP 3 - WRITE (REWRITE rows only)
+One paragraph of 4-5 sentences, never fewer than 3. Use fewer only if the source has little detail; never pad.
+Include, when the source has it:
+- What the program funds, in the funder's own terms
+- Specific topics or priorities, each named (not "various areas")
+- Award amount and length
+- Required cost share or match
+- Whether it is an RFI (responses only, no funding) or a funding call
+- Eligibility ONLY if it is very specific (e.g., early-career PIs only, full professors only, society members only), or if UNR cannot apply as the lead. In that case, say whether UNR could take part as a subawardee or collaborator.
+Leave out:
+- The deadline (it is shown separately), unless there are multiple cycles or a required earlier step such as an LOI or pre-application
+- Submission times of day
+- How or where to apply (portals, ProposalCentral, Research.gov, email)
+- Points of contact, page limits, formatting rules
+- Number of awards, total program budget, notice or listing numbers, release dates
+- General eligibility: citizenship, employment status, institution types
+- Funder mission statements and advice ("start early", "see guidelines")
+If the AI Rewrite Notes ask for something, include it. If a detail they ask for isn't on the source page, check the funder's main website once. Never guess an amount, date, or eligibility rule. If you still can't find it, leave it out; don't write vague wording in its place. For events and webinars, give the event time in Pacific Time.
+Every summary must be specific enough that it couldn't describe a different opportunity.
+Bad: "Supports activities aligned with its program mission, funding projects that advance research in the specified area."
+Good: "The Doe Foundation awards $25,000-$50,000 grants for community health research; the current call prioritizes maternal health and rural access."
+Write each summary yourself, not from a template or code. Don't use one sentence pattern for every row, and don't start two summaries the same way.
+
+Before returning, check every new summary: no HTML tags or entities, no bracketed notes or placeholders, and no two summaries that open the same way.
+
+STEP 4 - RETURN A TABLE, NOT A FILE
+Do not create or edit a spreadsheet. Return one table:
+Record ID | Title | Decision (KEEP/REWRITE) | Reason | New Summary
+Leave New Summary blank for KEEP rows. Below the table, list any detail you could not verify and any NEED SOURCE rows.
+Then tell the person: "Paste each New Summary into the Summary cell for that Record ID. Leave KEEP rows as they are."

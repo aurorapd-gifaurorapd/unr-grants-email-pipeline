@@ -1,0 +1,21 @@
+# Weekly working folders and outputs (licensed Pivot exports, staging sheets, emails)
+Grant_*/
+*.xlsx
+*.xlsm
+*.csv
+!agencies_updated*.csv
+*_opportunities.json
+*_skipped.json
+review.html
+Grant_Opportunities_*.html
+sam_cache/
+
+# The how-to doc holds SAM API keys; keep it (and old copies) out of git so a
+# future push to GitHub can't publish them.
+*.docx
+OLD Versions/
+
+# Python / editor clutter
+__pycache__/
+*.pyc
+.env
