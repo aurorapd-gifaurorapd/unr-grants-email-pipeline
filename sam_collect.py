@@ -326,6 +326,19 @@ def dedupe_hits(hits):
     return deduped
 
 
+def stop_run(problem, steps):
+    """Print a plain-language error and exit without writing any output file."""
+    print("\n" + "=" * 70, file=sys.stderr)
+    print(f"STOPPED: {problem}", file=sys.stderr)
+    print("No output file was written, so this can't be mistaken for a week with", file=sys.stderr)
+    print("no SAM.gov results.", file=sys.stderr)
+    print("\nWhat to do:", file=sys.stderr)
+    for s in steps:
+        print(f"  - {s}", file=sys.stderr)
+    print("=" * 70, file=sys.stderr)
+    sys.exit(2)
+
+
 def _get(url, label, binary=False):
     """Single authenticated GET. Increments the call counter. No retry on
     HTTP errors (a 429/403 won't fix itself and each retry is another call);
@@ -344,6 +357,23 @@ def _get(url, label, binary=False):
     except urllib.error.HTTPError as e:
         body = e.read().decode(errors="replace")[:500]
         print(f"    HTTP {e.code} on {label}: {body}", file=sys.stderr)
+        # A bad key or an exhausted daily quota fails the same way for every
+        # org. Carrying on used to finish with "0 hits" for all of them and a
+        # normal-looking empty output file (11/05 run: expired key). Stop
+        # instead, and write nothing, so the problem can't be mistaken for a
+        # quiet week.
+        if e.code in (401, 403) or "API_KEY_INVALID" in body:
+            stop_run(
+                "SAM.gov rejected the API key (HTTP %d)." % e.code,
+                ["The key in SAM_API_KEY has expired or is wrong. SAM keys expire every 90 days.",
+                 "Get a new key at sam.gov: sign in, Account Details, API Key.",
+                 'In PowerShell run:  setx SAM_API_KEY "your-new-key"',
+                 "Close and reopen PowerShell (or restart VS Code), then run sam_collect.py again."])
+        if e.code == 429 or "OVER_RATE_LIMIT" in body:
+            stop_run(
+                "SAM.gov says today's API call limit is used up (HTTP %d)." % e.code,
+                ["Your key allows about 10 calls a day and this collector uses up to 9.",
+                 "Run sam_collect.py again tomorrow, or skip SAM.gov this week."])
         return None
     except urllib.error.URLError as e:
         print(f"    network error on {label}: {e} -- one retry", file=sys.stderr)

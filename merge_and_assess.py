@@ -298,16 +298,26 @@ def main():
     seen_num, seen_sig = {}, {}
     deduped, dup_in_run = [], 0
     for r in records:
+        # An NIH notice is its own document: key it on its NOT- number, not on
+        # the parent NOFO number that its title happens to cite.
+        notice = re.search(r"notice-files/(NOT-[A-Za-z0-9-]+?)\.html?", r.get("url") or "")
+        if notice:
+            r["opp_number"] = notice.group(1)
         num = norm_number(r.get("opp_number"))
         sig = title_sig(r.get("title"), r.get("agency_name"))
         if num and num in seen_num:
             dup_in_run += 1; continue
-        if sig in seen_sig:
+        # A title match only counts as a duplicate when at least one record has
+        # no opportunity number. Two different numbers are two opportunities.
+        if sig in seen_sig and not (num and seen_sig[sig]):
             dup_in_run += 1; continue
         if num: seen_num[num] = True
-        seen_sig[sig] = True
+        seen_sig.setdefault(sig, num)
         deduped.append(r)
 
+    # Title matches here are only against rows from a prior merge; matches
+    # within this run were already settled by the loop above.
+    prior_sigs = set(existing_sigs)
     added = dropped_passed = skipped_dup = dropped_inst = flagged = 0
     drop_log, flag_log = [], []
     for rec in deduped:
@@ -324,7 +334,7 @@ def main():
         if dl_status == "passed":
             dropped_passed += 1; drop_log.append(f"  {rec.get('title','')[:50]} | {row[9]}"); continue
         nrid, nsig = norm_number(rid), title_sig(row[7], row[5])
-        if (nrid and nrid in existing_ids) or (nsig in existing_sigs):
+        if (nrid and nrid in existing_ids) or (nsig in prior_sigs):
             skipped_dup += 1; continue
         ws.append(row)
         if nrid: existing_ids.add(nrid)

@@ -120,7 +120,10 @@ _MONTHS = "(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)"
 _DATE_PATTERNS = [
     (re.compile(rf"\b(\d{{1,2}})\s+({_MONTHS})[a-z]*\s+(\d{{4}})\b"), "%d %b %Y"),  # 10 Jul 2026
     (re.compile(r"\b([A-Z][a-z]+)\s+(\d{1,2}),\s*(\d{4})\b"), "%B %d %Y"),          # July 10, 2026
-    (re.compile(r"\b(\d{4})-(\d{2})-(\d{2})\b"), "%Y-%m-%d"),                       # 2026-07-10
+    # (?!\d) rather than \b: SAM timestamps like 2026-12-04T14:00:00 put a
+    # letter right after the day, so \b never matched and the raw timestamp
+    # went straight into the staging Deadline cell (11/05 run).
+    (re.compile(r"\b(\d{4})-(\d{2})-(\d{2})(?!\d)"), "%Y-%m-%d"),                   # 2026-07-10, 2026-07-10T13:00
     (re.compile(r"\b(\d{1,2})/(\d{1,2})/(\d{4})\b"), "%m/%d/%Y"),                   # 07/10/2026
 ]
 def _try_parse(token, fmt):
