@@ -7,6 +7,11 @@ are newer than the manual; where they disagree, these win.
 
 ## Weekly run, in order
 
+`run_week.py` runs these steps one command at a time, in this order: `start`, `check`,
+`collect`, `merge`, `finalize`, `add`, `check-final`, `build`. `status` shows where a
+week stands. It's the documented way to run the week (see the how-to doc). The
+individual scripts below still work, and are the fallback if `run_week.py` misbehaves.
+
 1. The week folder is `Grant_MM_DD_YYYY` (the run date), containing the Pivot export `opps_export.csv`.
 2. Run the collectors once each:
    - `grants_collect.py`

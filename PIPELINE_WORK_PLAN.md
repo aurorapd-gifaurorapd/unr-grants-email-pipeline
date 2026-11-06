@@ -3,6 +3,51 @@
 Written November 5, 2026, after the 11/05 run. Builds on the backlog in
 `OLD Versions/weekly notes for improvements/PIPELINE_IMPROVEMENTS.md`.
 
+## Done on November 5, 2026
+
+**The 11/05 email:**
+- Covered the 14 days since 10/22. `Grant_11_05_2026/Grant_Opportunities.html` has 34 records in 9 sections.
+- Still open at the end of the session:
+  - Add the numbers back to the two Great Basin titles.
+  - Fix "developes" in the DARPA Young Faculty Award summary.
+  - Decide whether the AFOSR-Taiwan Deadline cell should be the November 18 pre-proposal date.
+  - Proofread, send, and archive the week folder.
+
+**Script fixes** (originals in `OLD Versions/scripts replaced 2026-11-05/`):
+- `merge_and_assess.py`: the duplicate filter no longer drops records whose numbers
+  differ (18 were lost on 11/05, including both Great Basin agreements). It also
+  gets NIH notice numbers from the URL.
+- `grants_common.py`: SAM timestamps like `2026-12-04T14:00:00` now read as dates.
+- `sam_collect.py`: stops with plain steps on a rejected key or a used-up daily
+  limit, instead of reporting 0 hits.
+- `nih_rss_collect.py` (v2): searches the NIH Guide over 30 days instead of the
+  3-day RSS feed. It has a new seen-list, `nih_seen.json` (seeded 11/05, so don't
+  delete it), and logs skipped notices to `nih_skipped.json`.
+
+**New tools:**
+- `replay_week.py`: re-runs a past week's merge and compares it, without changing
+  the week folder.
+- `run_week.py`: one command per weekly step. See Phase 1.
+- Git, with a `.gitignore` that keeps week folders, spreadsheets, Word files (the
+  SAM keys) and `OLD Versions` out of the repository.
+- A root `CLAUDE.md` with the weekly order, the rules learned on 11/05, and which
+  sources can be read.
+- This plan.
+
+**Directions and skills:**
+- `HOW TO RUN - Weekly Grants Email.docx` was rewritten around `run_week.py`, with
+  the same formatting. The old version is in `OLD Versions/HOW TO RUN - Weekly Grants Email (before run_week, 2026-11-05).docx`.
+- The non-grant-email-additions skill (`Claude Skills/`, rebuilt from the live
+  claude.ai version) now says to save its file into the week folder for
+  `run_week.py add`, not to paste rows into staging. **Upload
+  `Claude Skills/non-grant-email-additions.zip` to claude.ai to make it live.**
+- The Copilot non-grant finder instructions were rewritten to match the Claude
+  skill: allowed Types, deadline rules, DOD for sub-agencies, NASA, and the file
+  name. They're in the `.docx`, plus a `(Nov 2026).txt` copy. **Paste the new
+  text into the Copilot agent.** The old version is in `OLD Versions/skills replaced 2026-11-05/`.
+- Backlog: the summary writer should get approval for its rewrites, then write
+  them into the file itself (in `PIPELINE_IMPROVEMENTS.md`).
+
 ## The problem this plan solves
 
 The 11/05 run went well in Claude Code, but only because Claude did a lot of
@@ -43,7 +88,7 @@ only way it works.
 
 | Item | Status |
 |---|---|
-| P0-0 Set up git | **Open** (the folder is not a git repo) |
+| P0-0 Set up git | Done November 5, 2026 (GitHub push still to decide) |
 | P0-1 `validate_staging.py` | Done |
 | P0-2 `ENCODING_MAP` (U+202F) | **Check**: no U+202F entry found in the code |
 | P0-3 Agency routing guard | Done (merge stops on an unknown section) |
@@ -66,7 +111,7 @@ next to this plan, would make it easier to find.
 ## Phase 0: Safety net (one session)
 
 **Done November 5, 2026, except the GitHub push, which is waiting on your decision:**
-- Git has two commits: the morning-of-11/05 baseline, then that day's fixes. The
+- Git starts with the morning-of-11/05 baseline, then that day's fixes. The
   `.gitignore` also excludes `*.docx` and `OLD Versions/`, because the how-to doc holds the SAM keys.
 - The root `CLAUDE.md` exists.
 - `replay_week.py` works on both the 10/22 and 11/05 weeks.
@@ -86,7 +131,26 @@ next to this plan, would make it easier to find.
 
 ## Phase 1: One command for the week (the biggest PowerShell win)
 
-Create `run_week.py` with these subcommands:
+**First version done November 5, 2026.** `run_week.py` runs the existing scripts
+unchanged, so the old commands still work if it breaks.
+- **Safety:**
+  - It never deletes. Replaced files go to `<week>/backup/`, and seen-lists are
+    copied to `<week>/seen_backup/` before collecting.
+  - A collector whose output already exists is skipped.
+- **Testing:** every command was tested on a scratch copy of the 11/05 week. The
+  email it built was byte-for-byte identical to the hand-built one.
+- **Differences from the table below:**
+  - `check` tests the SAM key only with `--sam`, to save calls.
+  - `finalize` copies the export rather than moving it.
+  - `add` with no file name uses the newest `non_grant_additions*.xlsx` in the week folder.
+- **Still to do:**
+  - Confirm on the first live run: the SAM prompt in `collect`, `check --sam`, and
+    finding the export in Downloads.
+  - SAM.gov still looks back only 14 days, and `run_week.py` only warns about
+    longer gaps. Fixing it needs a `--days` option in `sam_collect.py`.
+  - The "Done when" test with Carrie.
+
+The original design:
 
 | Command | What it does |
 |---|---|
@@ -177,7 +241,7 @@ Step 1 is already done: the duplicate filter no longer drops records with differ
 1. **One rule:** once the review page is exported, every edit goes into `_final`.
    `run_week.py finalize` makes the copy, and any later command that changes
    staging warns that the edit won't reach the email.
-2. **Additions:** `run_week.py add` appends the non-grant additions file to `_final`,
+2. **Additions (done November 5, 2026):** `run_week.py add` appends the non-grant additions file to `_final`,
    sets Email? to Y, and runs the checks. No more pasting rows.
 3. **New problem checks**, each based on something that happened on 11/05:
    - Identical titles with different numbers: suggest adding the number (the Great Basin pair).
@@ -211,13 +275,15 @@ Step 1 is already done: the duplicate filter no longer drops records with differ
    It writes a short candidate table, and a person picks which to keep. Web search
    becomes a backup: on 11/05 it reported an NSF office-hours session that didn't exist.
 4. **Keep each skill in two places, in sync:** the installed skill and the copy in
-   `Claude Skills/` (and its `.zip` for claude.ai).
+   `Claude Skills/` (and its `.zip` for claude.ai). On 11/05 the folder copy of
+   non-grant-email-additions was found to be older than the live skill. It was
+   rebuilt from the live one. Check the summary writer's folder copy the same way.
 
 ## Phase 7: Documentation and handoff
 
-1. **Rewrite `HOW TO RUN`** around `run_week.py`. Add troubleshooting rows for: SAM
-   key rejected, Pivot export too small, collectors already run today, and edits
-   made after export.
+1. **Rewrite `HOW TO RUN`** around `run_week.py`. *Done November 5, 2026,* including
+   a troubleshooting row for "Already collected". Still to add: rows for a rejected
+   SAM key, a Pivot export that's too small, and edits made after export.
 2. **Reliability table** in `CLAUDE.md`: which sources can be read and how
    (Grants.gov API yes, Grants.gov pages no, SAM.gov pages no, NSPIRES yes, NIH
    Guide API yes, darpa.mil yes, Federal Register API yes).
@@ -230,9 +296,9 @@ Step 1 is already done: the duplicate filter no longer drops records with differ
 
 | # | Phase | Size | Why this order |
 |---|---|---|---|
-| 1 | Phase 0: safety net | 1 session | Everything after this needs rollback and replay |
-| 2 | Phase 2: items 1–2 (SAM fails loudly, NIH API) | 1 session | Cheap, and stops silent data loss next week |
-| 3 | Phase 1: `run_week.py` | 2–3 sessions | Biggest win for running from PowerShell |
+| 1 | Phase 0: safety net | Done 11/05 | Everything after this needs rollback and replay |
+| 2 | Phase 2: items 1–2 (SAM fails loudly, NIH API) | Done 11/05 | Cheap, and stops silent data loss next week |
+| 3 | Phase 1: `run_week.py` | First version done 11/05; confirm on the next live run | Biggest win for running from PowerShell |
 | 4 | Phase 3: NASA ROSES collector | 2 sessions | Biggest coverage gap; ROSES-27 arrives by January |
 | 5 | Phase 5: final-file flow and new checks | 1–2 sessions | Removes most copy and paste |
 | 6 | Phase 4: duplicate flags, log, seen-list | 1–2 sessions | Needs the replay harness |
