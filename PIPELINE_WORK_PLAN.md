@@ -88,7 +88,7 @@ only way it works.
 
 | Item | Status |
 |---|---|
-| P0-0 Set up git | Done November 5, 2026 (GitHub push still to decide) |
+| P0-0 Set up git | Done November 5, 2026; backed up to a private GitHub repo on November 6 |
 | P0-1 `validate_staging.py` | Done |
 | P0-2 `ENCODING_MAP` (U+202F) | **Check**: no U+202F entry found in the code |
 | P0-3 Agency routing guard | Done (merge stops on an unknown section) |
@@ -110,7 +110,9 @@ next to this plan, would make it easier to find.
 
 ## Phase 0: Safety net (one session)
 
-**Done November 5, 2026, except the GitHub push, which is waiting on your decision:**
+**Done November 5, 2026. The GitHub backup was added on November 6:**
+`https://github.com/aurorapd-gifaurorapd/unr-grants-email-pipeline` is private.
+After each new commit, run `git push` to update the backup.
 - Git starts with the morning-of-11/05 baseline, then that day's fixes. The
   `.gitignore` also excludes `*.docx` and `OLD Versions/`, because the how-to doc holds the SAM keys.
 - The root `CLAUDE.md` exists.
