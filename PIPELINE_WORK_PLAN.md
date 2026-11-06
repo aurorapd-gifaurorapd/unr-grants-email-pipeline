@@ -98,7 +98,7 @@ only way it works.
 | P1-4 Monday header date | Done (`current_week_monday`) |
 | P1-5 SAM PSC gate | Done; 74 of 88 dropped on 11/05, worth a spot-check |
 | P1-6 SAM in the merge command | Done |
-| P2-1 NASA ROSES collector | **Open**: Phase 3 below |
+| P2-1 NASA ROSES collector | Done November 6, 2026 (Phase 3) |
 | P2-2 Federal Register / policy watch | **Open**: Phase 6 below |
 | P2-3 Drop the NSF RSS collector | Open |
 | P3 Strip `utm_*` tracking tags | **Open** (needed by hand on 11/05) |
@@ -196,6 +196,31 @@ PowerShell and pick up where you left off.
 **Done when** a run with a bad SAM key stops, and replaying 11/05 finds the NIH gap notices with no manual step.
 
 ## Phase 3: NASA ROSES collector (new priority)
+
+**Done November 6, 2026: `nasa_roses_collect.py`.** It differs from the design below
+in two ways:
+- **Source:** it reads the science.nasa.gov WordPress API instead of the blog HTML.
+- **No NSPIRES:** it doesn't read NSPIRES, which refuses scripted requests. The due
+  dates come from the posts' fixed wording ("Mandatory NOIs are due by…",
+  "Step-1 proposals are due…", "The due date for Phase-1 Proposals… is…").
+
+How it works:
+- **Types:** new opportunities are Grant. Changes to existing elements are marked
+  for you to decide on. Program-wide announcements are Policy. Award selections are skipped.
+- **Deadline cell:** the earliest required date. Required means Step-1, a mandatory
+  NOI, or the proposal itself; an optional NOI only goes in the sequence. The full
+  sequence goes in Eligibility Notes.
+- **Links:** the NSPIRES link is used when the post gives one. Otherwise it links
+  the blog post.
+- **Run:** `run_week.py collect` runs it.
+- **Tested:** on the last 50 days of posts, 9 posts came out right. The replay of 11/05
+  produced the expected 8 NASA rows, and the second run the same day gave 0.
+- **Seen-list:** `nasa_seen.json` was started on 11/06 with only the two posts sent on
+  11/05 (Amendment 81 and the ROSES-27 notice), using `--mark-sent`.
+- **The gap it closes:** the 10/22 email missed Amendments 77–80 (A.18 Geosphere, B.7
+  Heliophysics Low-Cost Access to Space, B.8 Heliophysics Spaceflight Science
+  Foundations, D.3 Swift/Fermi/TESS).
+
 
 **Why it works now:** the 08-13 backlog said NSPIRES blocks crawling. On 11/05
 everything NASA-side read cleanly:
@@ -301,7 +326,7 @@ Step 1 is already done: the duplicate filter no longer drops records with differ
 | 1 | Phase 0: safety net | Done 11/05 | Everything after this needs rollback and replay |
 | 2 | Phase 2: items 1–2 (SAM fails loudly, NIH API) | Done 11/05 | Cheap, and stops silent data loss next week |
 | 3 | Phase 1: `run_week.py` | First version done 11/05; confirm on the next live run | Biggest win for running from PowerShell |
-| 4 | Phase 3: NASA ROSES collector | 2 sessions | Biggest coverage gap; ROSES-27 arrives by January |
+| 4 | Phase 3: NASA ROSES collector | Done 11/06 | Biggest coverage gap; ROSES-27 arrives by January |
 | 5 | Phase 5: final-file flow and new checks | 1–2 sessions | Removes most copy and paste |
 | 6 | Phase 4: duplicate flags, log, seen-list | 1–2 sessions | Needs the replay harness |
 | 7 | Phase 6: skills, `fetch_sources.py`, `scout.py` | 2 sessions | Builds on the stable final-file flow |

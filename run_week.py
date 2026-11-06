@@ -32,7 +32,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ARCHIVE = os.path.join(os.path.dirname(HERE), "Grants Email weekly folder archive")
 DOWNLOADS = os.path.join(os.path.expanduser("~"), "Downloads")
 STAGING = "Grant_Opportunities_Staging.xlsx"
-SEEN_FILES = ["federal_seen.json", "nsf_seen.json", "nih_seen.json"]
+SEEN_FILES = ["federal_seen.json", "nsf_seen.json", "nih_seen.json", "nasa_seen.json"]
 LOOKBACK_MARGIN = 3          # extra days on top of the gap since the last email
 
 # Collector defaults (the windows built into each script).
@@ -321,6 +321,8 @@ def collectors(week, days):
          ["nih_rss_collect.py", "--out", w("nih_opportunities.json"), "--days", str(days)]),
         ("nsf", "nsf_opportunities.json",
          ["nsf_rss_collect.py", "--out", w("nsf_opportunities.json"), "--days", str(days)]),
+        ("nasa", "nasa_opportunities.json",
+         ["nasa_roses_collect.py", "--out", w("nasa_opportunities.json"), "--days", str(days)]),
         ("sam", "sam_opportunities.json",
          ["sam_collect.py", "--out", w("sam_opportunities.json"), "--skipped-out", w("sam_skipped.json")]),
     ]
@@ -355,7 +357,7 @@ def cmd_collect(a):
         if os.path.exists(out) and name not in redo:
             say(f"Already collected ({count_json(out)} records in {outfile}). Skipping.")
             say(f"  To run it again anyway: py run_week.py collect --only {name} --redo {name}"
-                + ("  (it will likely return 0 because of the seen-list)" if name in ("federal", "nsf", "nih") else ""))
+                + ("  (it will likely return 0 because of the seen-list)" if name in ("federal", "nsf", "nih", "nasa") else ""))
             continue
         if name == "pivot" and not os.path.exists(os.path.join(week, "opps_export.csv")):
             say("No opps_export.csv; skipping Pivot.")
@@ -636,7 +638,7 @@ def main():
     p.add_argument("--sam", action="store_true", help="also test the SAM key (uses 1 call)")
     p = add("collect", cmd_collect, "run every collector once")
     p.add_argument("--days", type=int, help="lookback for federal, NSF and NIH (default: from start)")
-    p.add_argument("--only", help="comma list: federal,pivot,nih,nsf,sam")
+    p.add_argument("--only", help="comma list: federal,pivot,nih,nsf,nasa,sam")
     p.add_argument("--redo", help="comma list of collectors to run again even if already collected")
     p.add_argument("--yes", action="store_true", help="don't ask before SAM.gov")
     p.add_argument("--dry-run", action="store_true", help="show the commands without running them")

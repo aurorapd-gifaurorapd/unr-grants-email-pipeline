@@ -17,6 +17,7 @@ individual scripts below still work, and are the fallback if `run_week.py` misbe
    - `grants_collect.py`
    - `nih_rss_collect.py`
    - `nsf_rss_collect.py`
+   - `nasa_roses_collect.py` (added 11/06)
    - `pivot_collect.py`
    - `sam_collect.py`
 3. Merge **all** `*_opportunities.json` files in the week folder into
@@ -31,9 +32,11 @@ individual scripts below still work, and are the fallback if `run_week.py` misbe
 
 ## Hard rules learned on 11/05
 
-- **Run collectors once a day.** `grants_collect.py`, `nsf_rss_collect.py` and
-  `nih_rss_collect.py` update `federal_seen.json`, `nsf_seen.json` and
-  `nih_seen.json`. A second run returns 0. Never delete or hand-edit these files.
+- **Run collectors once a day.** `grants_collect.py`, `nsf_rss_collect.py`,
+  `nih_rss_collect.py` and `nasa_roses_collect.py` update `federal_seen.json`,
+  `nsf_seen.json`, `nih_seen.json` and `nasa_seen.json`. A second run returns 0.
+  Never delete or hand-edit these files. To record a NASA post that was added to
+  the email by hand, use `nasa_roses_collect.py --mark-sent <post id>`.
 - **Check that the lookback covers the gap since the last email.** The default
   windows are federal 30 days, NSF 30, NIH 30 and SAM 14. If more than 14 days
   have passed since the last email, say so before running `sam_collect.py`.
@@ -64,7 +67,8 @@ individual scripts below still work, and are the fallback if `run_week.py` misbe
 | SAM.gov pages | Can't be read. Use the PDF the human attaches, the collector's data, or the agency's page (for example darpa.mil) |
 | NIH Guide notices | `grants.nih.gov/grants/guide/notice-files/<NOT-…>.html` works. New NOFO `rfa-files/` pages returned 404, so use the Grants.gov API for those |
 | NIH Guide search | `search.grants.nih.gov/guide/api/data`, with `type=notices` and `daterange=MMDDYYYY-MMDDYYYY` |
-| NSPIRES (NASA) | Summary pages (`summary.do?solNum=…`) are public. Program element PDFs download directly |
+| NSPIRES (NASA) | Summary pages (`summary.do?solNum=…`) are public to Claude's web reader. Program element PDFs download directly. Scripts are refused (connection closed), so collectors don't read NSPIRES |
+| NASA ROSES blog (API) | `https://science.nasa.gov/wp-json/wp/v2/topic?parent=<roses-YYYY page id>` returns posts with date and full text. Year pages are children of page 60348 |
 | NASA ROSES blog, nsf.gov, neh.gov, darpa.mil, science.osti.gov | Readable |
 | Federal Register | `https://www.federalregister.gov/api/v1/documents/<doc number>.json` |
 | simpler.grants.gov | Opportunity pages are readable; attachments come from `files.simpler.grants.gov` |
