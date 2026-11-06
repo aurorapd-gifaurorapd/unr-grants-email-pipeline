@@ -17,7 +17,7 @@ moved into a "backup" folder inside the week folder first.
     py run_week.py collect        run every collector once (asks before SAM.gov)
     py run_week.py merge          make a fresh staging file and open the review page
     py run_week.py finalize       bring in the review export, make the _final copy
-    py run_week.py add FILE       add non-grant rows from FILE to _final
+    py run_week.py add            add the non-grant additions file to _final
     py run_week.py check-final    run every check the email build will run
     py run_week.py build          build the email and open it
     py run_week.py status         what's done and what to do next
@@ -473,7 +473,7 @@ def cmd_finalize(a):
     shutil.copy2(dest, final)
     mark(week, st, "finalize", export=os.path.basename(dest), final=os.path.basename(final))
     say(f"Made {os.path.basename(final)}. Every edit from here on goes into this file.")
-    say("\nNext: non-grant additions (py run_week.py add FILE) and summary rewrites, then:  py run_week.py check-final")
+    say("\nNext: non-grant additions (py run_week.py add) and summary rewrites, then:  py run_week.py check-final")
 
 
 # ── add ──────────────────────────────────────────────────────────────────────
@@ -485,6 +485,14 @@ def cmd_add(a):
     if not finals:
         stop("No validated_*_final.xlsx in the week folder.", ["Run:  py run_week.py finalize"])
     final = finals[-1]
+    if not a.file:
+        cands = [p for p in glob.glob(os.path.join(week, "non_grant_additions*.xlsx"))
+                 if not os.path.basename(p).startswith("~$")]
+        if not cands:
+            stop("No non_grant_additions*.xlsx in the week folder.",
+                 ["Save the additions file into the week folder, or give its path:  py run_week.py add PATH"])
+        a.file = max(cands, key=os.path.getmtime)
+        say(f"Using {os.path.basename(a.file)}")
     if not os.path.exists(a.file):
         stop(f"File not found: {a.file}")
 
@@ -638,7 +646,8 @@ def main():
     p.add_argument("--file", help="the export, if it isn't the newest validated_*.xlsx in Downloads")
     p.add_argument("--replace", action="store_true", help="start _final over (old one goes to backup/)")
     p = add("add", cmd_add, "add non-grant rows to _final")
-    p.add_argument("file", help="xlsx with the 16 staging columns, e.g. non_grant_additions_YYYY-MM-DD.xlsx")
+    p.add_argument("file", nargs="?", help="xlsx with the 16 staging columns "
+                                           "(default: the newest non_grant_additions*.xlsx in the week folder)")
     add("check-final", cmd_check_final, "run every check the email build runs")
     p = add("build", cmd_build, "build the email and open it")
     p.add_argument("--email-date", help="YYYY-MM-DD (default: Monday of this week)")

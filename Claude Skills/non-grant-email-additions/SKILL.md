@@ -1,6 +1,6 @@
 ---
-name: non-grant-email-additions
-description: Find new RFIs, Dear Colleague Letters, funder webinars/events, and policy updates from federal research agencies for the UNR weekly grants email, and return them as rows in the exact 16-column staging layout so they can be pasted into Grant_Opportunities_Staging.xlsx. Use when someone asks for "non-grant email additions", "extra items for the grants email", or uploads the weekly staging file and asks what the searches missed.
+name: "non-grant-email-additions"
+description: "Find new RFIs, Dear Colleague Letters, funder webinars/events, and policy updates from federal research agencies for the UNR weekly grants email, and return them as rows in the exact 16-column staging layout in an Excel file that the weekly pipeline adds to the email. Use when someone asks for \"non-grant email additions\", \"extra items for the grants email\", or uploads the weekly staging file and asks what the searches missed."
 ---
 
 # Non-grant email additions
@@ -57,8 +57,8 @@ Search for each of these types:
 - RFI: agency requests for public input or information
 - DCL: Dear Colleague Letters announcing new priorities or program changes
 - Event: webinars, workshops, office hours, information sessions, meetings relevant to faculty researchers
-- Policy: salary cap updates, F&A guidance, data management requirements, research security notices, foreign component policy, compliance changes, any update a PI or grants administrator would need to act on
-- Grant: only if the person explicitly asks for a specific grant to be added
+- Policy: salary cap updates, F&A guidance, data management requirements, research security notices, foreign component policy, compliance changes, any update a PI or grants administrator would need to act on. You can also search for news or press releases from agencies that indicate new or anticipated funding programs or funding priorities. 
+- Grant: only if the person explicitly asks for a specific grant to be added (this includes limited submission opportunities; see the Type rule in Step 5)
 
 Use varied search terms for each type. If a search returns nothing for an
 agency, try at least one other query.
@@ -66,10 +66,9 @@ agency, try at least one other query.
 ## Step 3. Filter
 
 Include an item only if all of these are true:
-- Published since the last email
+- Published in the last 14 days
 - Relevant to faculty researchers at a public R1 university
 - Has a direct URL to the agency's own page (prefer the notice page over news articles)
-- Is not a standard grant opportunity, unless the person asked for it
 - Its deadline or event date has not passed
 
 ## Step 4. Confirm
@@ -84,13 +83,17 @@ Say what it is, what it covers (name the specific topics), and any award
 amount. Leave out the deadline, submission times, how to submit, contacts, and
 notice numbers. Never guess a date, amount, or eligibility rule.
 
+Exception: if the person supplies text that must appear in a summary (for
+example, UNR's limited submission language), include it word for word, even if
+the summary then runs past 5 sentences or includes a contact.
+
 Fill these 16 columns, in this exact order, with these exact headers:
 
 | Col | Header | Value |
 |---|---|---|
 | A | Email? | blank |
 | B | Eligibility Flag | blank |
-| C | Type | exactly one of: `Grant`, `DCL`, `RFI`, `Event`, `Limited Submission`, `Policy` |
+| C | Type | exactly one of: `Grant`, `DCL`, `RFI`, `Event`, `Policy` |
 | D | Recommendation | `Added by search: ` and one short reason |
 | E | LOI Alert | blank |
 | F | Funding Agency | full name from the table below |
@@ -99,11 +102,18 @@ Fill these 16 columns, in this exact order, with these exact headers:
 | I | Summary | as above |
 | J | Deadline | never blank, see rules below |
 | K | Link1 URL | the official source page |
-| L | Link1 Text | the notice number if there is one, otherwise `Learn more` |
+| L | Link1 Text | the notice number if there is one, otherwise something specific to the item |
 | M | Link2 URL | blank unless a second source was used |
 | N | Link2 Text | blank unless Link2 URL is filled |
 | O | Eligibility Notes | `Added by search - verify` |
 | P | Record ID | the notice or solicitation number (e.g. `NSF 26-501`, `NOT-OD-26-120`), else blank |
+
+Type rule for limited submissions: never use `Limited Submission` as a Type,
+because it breaks the email build script. A limited submission opportunity is
+Type `Grant`. Show that it is a limited submission in the Summary (using UNR's
+limited submission language if the person supplies it) and in the
+Recommendation (e.g. `Added by search: limited submission, UNR may submit one
+application`).
 
 Deadline rules. The email build refuses a blank or malformed deadline, so:
 - Write dates as `November 03, 2026`.
@@ -138,13 +148,12 @@ For any other federal agency not listed, ask the person which abbreviation to us
 ## Step 6. Output
 
 Before writing, re-check every row against its source: Type, Deadline, and
-Abbreviation.
+Abbreviation. Confirm no row uses `Limited Submission` as its Type.
 
 Create an Excel file `non_grant_additions_YYYY-MM-DD.xlsx` (today's date) with
 the header row and one row per confirmed item, and give it to the person to
 download. Also show the rows as a table in the chat.
 
-Tell them: "Copy the rows (not the header) and paste them into column A of the
-first empty row in Grant_Opportunities_Staging.xlsx."
-
-Then ask: "Would you like me to search any other sources?"
+Tell them: "Save this file into this week's Grant_MM_DD_YYYY folder. Keep the
+file name as it is. Step 7 of the weekly directions (py run_week.py add) adds
+its rows to the _final file."
