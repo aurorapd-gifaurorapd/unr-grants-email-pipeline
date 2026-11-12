@@ -43,8 +43,9 @@ individual scripts below still work, and are the fallback if `run_week.py` misbe
 - **SAM.gov:** about 10 calls a day, and a full run uses up to 9. If the key is
   rejected or the limit is reached, the collector stops and writes nothing. Don't
   retry the same day. To check the key, make one search call with `limit=1`.
-- **Pivot:** if `opps_export.csv` has far fewer rows than recent weeks (usually
-  about 150–180), tell the human before going on. It may be a partial export.
+- **Pivot:** the number of rows in `opps_export.csv` changes every week (5 on 11/05,
+  8 on 11/12, 178 on 10/22). There is no expected size, so don't stop over a low
+  count. Stop only if the file is missing, empty, or has the wrong header.
 - **Deadline rule:** the Deadline cell holds the earliest *required* date (a
   required LOI, white paper, pre-proposal, concept paper or State Forester
   submission). The summary ends with a sentence giving the full sequence, with

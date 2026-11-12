@@ -317,6 +317,42 @@ Step 1 is already done: the duplicate filter no longer drops records with differ
 3. **Weekly human checklist,** kept from the backlog: stale funder facts, buried
    eligibility rules, multi-stage deadlines, and cost-policy problems.
 
+## Phase 8: Standing opportunities, monthly (added November 12, 2026)
+
+**The goal:** recurring and always-open opportunities appear in the first email of
+each month, so faculty see them even though no collector will ever report them as
+new. Examples are the DOE Office of Science open BAA and the NSF core programs.
+
+**Decided November 12:** standing items go at the **top** of the email, with **no
+summary** (title and link only). Some carry an **expiration date**, shown when
+there is one. More design talk is planned after the 11/12 email goes out.
+
+1. **A standing list.** Keep `standing_opportunities.xlsx` at the pipeline root
+   with a short layout: Title, Agency, Link, Number, Expiration (optional),
+   `Last Checked` and `Active` (Y/N). Rows past their expiration date drop out
+   automatically.
+2. **When it runs.** `run_week.py start` sees that no email has gone out yet this
+   calendar month and says "First email of the month: standing opportunities
+   will be added." The next one is the first December email.
+3. **How rows get in.** A new step, `run_week.py standing` (or part of `add`),
+   appends the active rows to `_final` with Email? set to Y. It skips any row
+   whose number or title already appears that week, because a new amendment or
+   solicitation from the collectors is more current.
+4. **Keeping it current.** Before adding, flag any row whose `Last Checked` date
+   is more than about 90 days old, or whose link no longer works, so a person
+   confirms it's still open. Fiscal-year BAAs such as DOE's get a new number
+   each year, which is the main thing to check.
+5. **Where it shows in the email:** a block at the top, before the agency
+   sections. `build_html.py` needs a new compact layout for it (title, link,
+   expiration if any).
+6. **Seed list to start from:** DOE Office of Science open BAA, the NSF core
+   programs (directorate-level "core" solicitations with no deadline or with
+   recurring target dates), and others the team names. Check each one's status
+   once when the list is built.
+
+**Done when** the first email of a month includes the standing section with no
+hand work, and later emails in that month don't.
+
 ---
 
 ## Order and size
@@ -331,6 +367,7 @@ Step 1 is already done: the duplicate filter no longer drops records with differ
 | 6 | Phase 4: duplicate flags, log, seen-list | 1–2 sessions | Needs the replay harness |
 | 7 | Phase 6: skills, `fetch_sources.py`, `scout.py` | 2 sessions | Builds on the stable final-file flow |
 | 8 | Phase 7: docs and handoff | 1 session | Last, so the docs describe the finished tools |
+| – | Phase 8: standing opportunities, monthly | 1 session, plus building the list | Best done before the first December email |
 | – | Phase 2: items 3–5 | Fold into any session | Small, independent fixes |
 
 **How to work it:** one item per Claude Code session, and look at the changes
