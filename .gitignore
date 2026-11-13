@@ -19,3 +19,6 @@ OLD Versions/
 __pycache__/
 *.pyc
 .env
+
+# The standing list is maintained config, not weekly data, so back it up
+!standing_opportunities.xlsx

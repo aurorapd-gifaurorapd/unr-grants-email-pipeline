@@ -319,6 +319,30 @@ Step 1 is already done: the duplicate filter no longer drops records with differ
 
 ## Phase 8: Standing opportunities and carry-forward items (added November 12, 2026)
 
+> **Where we stopped (November 13, 2026).** No scripts have been changed yet.
+> - **Done:** the 8a decisions. A draft `standing_opportunities.xlsx` is at the
+>   pipeline root, with three sheets: Standing (21 active items), Candidates
+>   (21 items set to Active = N) and Agency Notes (one NSF note). Every item's
+>   status was checked through the Grants.gov API on 11/13, and the NSF pages
+>   were checked by number.
+> - **Open questions for the user:**
+>   1. Should NOAA rows use NOAA or DOC as the abbreviation?
+>   2. Should CISE Future CoRe (25-543, deadline 02/04/2027) stay out?
+>   3. Which Candidates should be promoted?
+>   4. The ROSES-2025 NSPIRES link and its expiration need a check by hand.
+>   5. Is January 04, 2027 the right end date for the MRI carry-forward?
+> - **Next, in order:**
+>   1. **8b, before the 11/19 email.** It's needed so the MRI carries forward.
+>      Otherwise, copy the MRI row into the 11/19 `_final` by hand, including
+>      its `<strong>` note.
+>   2. Remove the temporary Link Check column from the standing list.
+>   3. Build 8a: `run_week.py standing`, the first-of-month check in `start`,
+>      and the grouped top block in `build_html.py`. It's needed by the first
+>      December email.
+> - **Rules for script work:** confirm before editing any script, save the
+>   originals in `OLD Versions/scripts replaced YYYY-MM-DD/`, and test with
+>   `replay_week.py`.
+
 Two features that share one system. **8a**: a monthly "Standing Funding
 Opportunities" block. **8b**: carry-forward items, which repeat in the weekly
 email until a set date.
@@ -357,7 +381,11 @@ new. Examples are the DOE Office of Science open BAA and the NSF core programs.
 1. **The list.** Keep `standing_opportunities.xlsx` at the pipeline root, with
    these columns: Agency (abbreviation), Title, Number (used as the link text),
    Link, Expiration (optional), Note (optional, up to 10 words), Last Checked,
-   and Active (Y/N).
+   and Active (Y/N). A second sheet, `Agency Notes` (Agency, Note), holds
+   notes that apply to a whole agency group. The email shows them in italics
+   under that agency's heading. The first one is for NSF: some directorates
+   and programs have internal deadlines that may not be listed on the program
+   page, so PIs should check with the program officer.
 2. **The step.** `run_week.py standing` runs after `add` on the first email of
    the month. It writes the active, unexpired rows that aren't duplicates to a
    week file named `standing_<date>.json`, which the build reads. The rows don't
@@ -411,6 +439,36 @@ it when building.
 Opportunities block with no hand work and later emails that month don't, and a
 row flagged with `Repeat Until` reappears each week until that date without
 being re-added by hand.
+
+---
+
+## Parked ideas (not scheduled)
+
+Ideas worth keeping, with no work planned yet.
+
+### Bold notes as their own field (parked November 13, 2026)
+
+**The idea:** an optional `Note` column for UNR-specific text, such as the MRI
+note about the InfoReady Intent to Submit. The email shows the note in bold
+after the summary, so nobody has to type `<strong>` tags into the Summary cell.
+
+**Today's workaround (works now):** type `<strong>...</strong>` around the note
+at the end of the Summary cell in `_final`. `build_html.py` passes the summary
+through as typed, and `validate_staging.py` flags only entities (`&lt;`),
+not tags. Watch out: the summary-writer skill treats any HTML as a reason to
+rewrite, so mark these rows KEEP.
+
+**What it would take (small, about half a session):**
+- A new optional column, added at the end of the layout so the existing
+  16-column positions don't move. That means updates to the merge, the review
+  page export, `run_week.py add`, and the non-grant additions skill's column
+  list.
+- `build_html.py` renders a non-empty Note as a bold line after the summary.
+- `validate_staging.py` checks the Note the same way it checks summaries (no
+  tags, no entities, encoding map).
+- The summary-writer skill leaves the Note alone.
+- It fits naturally with 8b. A carried-forward row keeps its Note, so this
+  could be built in the same session.
 
 ---
 
