@@ -317,41 +317,100 @@ Step 1 is already done: the duplicate filter no longer drops records with differ
 3. **Weekly human checklist,** kept from the backlog: stale funder facts, buried
    eligibility rules, multi-stage deadlines, and cost-policy problems.
 
-## Phase 8: Standing opportunities, monthly (added November 12, 2026)
+## Phase 8: Standing opportunities and carry-forward items (added November 12, 2026)
+
+Two features that share one system. **8a**: a monthly "Standing Funding
+Opportunities" block. **8b**: carry-forward items, which repeat in the weekly
+email until a set date.
+
+### 8a. Standing Funding Opportunities, monthly
 
 **The goal:** recurring and always-open opportunities appear in the first email of
 each month, so faculty see them even though no collector will ever report them as
 new. Examples are the DOE Office of Science open BAA and the NSF core programs.
 
-**Decided November 12:** standing items go at the **top** of the email, with **no
-summary** (title and link only). Some carry an **expiration date**, shown when
-there is one. More design talk is planned after the 11/12 email goes out.
+**Decided November 13** (after the 11/12 email):
 
-1. **A standing list.** Keep `standing_opportunities.xlsx` at the pipeline root
-   with a short layout: Title, Agency, Link, Number, Expiration (optional),
-   `Last Checked` and `Active` (Y/N). Rows past their expiration date drop out
-   automatically.
-2. **When it runs.** `run_week.py start` sees that no email has gone out yet this
-   calendar month and says "First email of the month: standing opportunities
-   will be added." The next one is the first December email.
-3. **How rows get in.** A new step, `run_week.py standing` (or part of `add`),
-   appends the active rows to `_final` with Email? set to Y. It skips any row
-   whose number or title already appears that week, because a new amendment or
-   solicitation from the collectors is more current.
-4. **Keeping it current.** Before adding, flag any row whose `Last Checked` date
-   is more than about 90 days old, or whose link no longer works, so a person
-   confirms it's still open. Fiscal-year BAAs such as DOE's get a new number
-   each year, which is the main thing to check.
-5. **Where it shows in the email:** a block at the top, before the agency
-   sections. `build_html.py` needs a new compact layout for it (title, link,
-   expiration if any).
-6. **Seed list to start from:** DOE Office of Science open BAA, the NSF core
-   programs (directorate-level "core" solicitations with no deadline or with
-   recurring target dates), and others the team names. Check each one's status
-   once when the list is built.
+- **Heading:** "Standing Funding Opportunities", at the **top** of the email,
+  before the agency sections.
+- **Layout:** grouped by agency. Each agency gets a short heading with a bulleted
+  list under it. Each item shows the title, then the solicitation or BAA number
+  as the link text, then the expiration date if there is one. An optional note
+  of up to 10 words (for example "white paper encouraged first") is allowed, but
+  most items won't have one. There is **no summary**.
+- **Trigger: automatic.** `run_week.py start` checks the earlier week folders. If
+  none of them falls in this calendar month, this run is the first email of the
+  month, and it asks the person running it to confirm. The next one is the first
+  December email.
+- **Duplicates:** if a standing item also comes in as a regular row that week
+  (for example, a new NSF core-program solicitation), **drop it from the standing
+  block**. The regular row, with its summary, is more current.
+- **Expired items:** leave them out of the email automatically, and flag them so
+  the person can update the expiration date or retire the row.
+- **Upkeep:** the user adds and removes rows. Each month Claude checks every
+  link and expiration date and flags anything dead, expired or changed before
+  the build. The user can also ask for any item to be added or repeated, and the
+  list grows from those requests.
 
-**Done when** the first email of a month includes the standing section with no
-hand work, and later emails in that month don't.
+**Build steps:**
+
+1. **The list.** Keep `standing_opportunities.xlsx` at the pipeline root, with
+   these columns: Agency (abbreviation), Title, Number (used as the link text),
+   Link, Expiration (optional), Note (optional, up to 10 words), Last Checked,
+   and Active (Y/N).
+2. **The step.** `run_week.py standing` runs after `add` on the first email of
+   the month. It writes the active, unexpired rows that aren't duplicates to a
+   week file named `standing_<date>.json`, which the build reads. The rows don't
+   go into `_final`, because they don't use the 16-column summary layout.
+3. **The check.** Before writing, check every link. Flag dead links, past
+   expirations, and a `Last Checked` date older than about 90 days. Fiscal-year
+   BAAs such as DOE's get a new number each year, which is the main thing to
+   watch for.
+4. **The email.** `build_html.py` renders the grouped block at the top when the
+   week has a standing file. `validate_staging.py`-style checks run on it too:
+   no `http://` links, no `utm_` tags, and no characters outside the encoding
+   map.
+5. **Starting list**, with each item checked once when the list is built:
+   - DOE Office of Science open BAA.
+   - NSF core programs: CISE, BIO, ENG, MPS, SBE, GEO and others with no
+     deadline or with recurring target dates.
+   - DOD long-running BAAs: ONR, AFOSR, ARO, ARL, and DARPA office-wide BAAs.
+   - Other agencies' recurring programs, for example NIH parent announcements,
+     USDA AFRI, and NASA ROSES as a single link.
+   - Anything else the user asks to have repeated.
+
+### 8b. Carry-forward items (repeat until a date)
+
+**The goal:** a person can flag a regular item so it shows up in **every** weekly
+email until a date they choose, instead of appearing once. Normally an item
+appears once, because the collectors' seen-lists stop it from coming back.
+**First use:** the NSF MRI (NSF 27-500, with UNR's InfoReady Intent to Submit
+note) stays in every email until the beginning of January 2027. The proposed
+end date is January 04, 2027, the internal Intent to Submit deadline; confirm
+it when building.
+
+1. **Flagging.** Add an optional `Repeat Until` column to the `_final` layout and
+   the review page. A date there means "carry this row forward". The user can
+   also just ask Claude to flag a row.
+2. **Saving.** When `run_week.py build` succeeds, it copies every row with a
+   future `Repeat Until` date, all 16 columns plus `Repeat Until`, into
+   `carry_forward.xlsx` at the pipeline root. If that Record ID is already
+   there, the new copy replaces it, so summary or link edits carry forward too.
+3. **Adding back.** `run_week.py add` also appends the `carry_forward.xlsx` rows
+   whose `Repeat Until` is on or after this email's date. Each row goes into its
+   normal agency section with its full summary. If the same Record ID is already
+   in `_final` that week, the existing row wins, but it keeps the `Repeat Until`
+   date.
+4. **Expiry.** Rows past their date stop being added, and `status` lists them as
+   ended. A row also drops out when its own deadline passes. `check-final`
+   flags any carried row whose Deadline has already passed.
+5. **Seed:** NSF MRI (Record ID 27-500), with its 11/12 summary and both links,
+   repeating until January 04, 2027.
+
+**Done when** the first email of a month includes the Standing Funding
+Opportunities block with no hand work and later emails that month don't, and a
+row flagged with `Repeat Until` reappears each week until that date without
+being re-added by hand.
 
 ---
 
@@ -367,7 +426,7 @@ hand work, and later emails in that month don't.
 | 6 | Phase 4: duplicate flags, log, seen-list | 1–2 sessions | Needs the replay harness |
 | 7 | Phase 6: skills, `fetch_sources.py`, `scout.py` | 2 sessions | Builds on the stable final-file flow |
 | 8 | Phase 7: docs and handoff | 1 session | Last, so the docs describe the finished tools |
-| – | Phase 8: standing opportunities, monthly | 1 session, plus building the list | Best done before the first December email |
+| – | Phase 8: standing block (8a) and carry-forward items (8b) | 1–2 sessions, plus building the list | Before the 11/19 email, so the MRI carries forward; 8a before the first December email |
 | – | Phase 2: items 3–5 | Fold into any session | Small, independent fixes |
 
 **How to work it:** one item per Claude Code session, and look at the changes
