@@ -409,6 +409,23 @@ new. Examples are the DOE Office of Science open BAA and the NSF core programs.
 
 ### 8b. Carry-forward items (repeat until a date)
 
+**Done November 16, 2026**, in a simpler form than the design below. Only
+`run_week.py` changed (the original is in `OLD Versions/scripts replaced
+2026-11-16/`). There's no new column in `_final` and no change to the review
+page or the build.
+- `run_week.py repeat <Record ID> --until YYYY-MM-DD` saves the row from the
+  latest `_final` into `carry_forward.xlsx` (the 16 columns, plus Repeat Until
+  and Saved From). `--list` shows the saved rows, and `--stop` removes one.
+- `run_week.py carry`, run after `finalize`, adds every saved row whose date is
+  on or after the week folder's date. It skips rows already in `_final`, backs
+  up `_final` first, and lists the rows that have ended.
+- Tested on a scratch copy: added once, skipped on a second run, and not added
+  for a week after the end date. `check-final` passed on the result.
+- The MRI row is saved through January 04, 2027, with `<strong>` tags around
+  its note.
+
+The original design, kept for reference:
+
 **The goal:** a person can flag a regular item so it shows up in **every** weekly
 email until a date they choose, instead of appearing once. Normally an item
 appears once, because the collectors' seen-lists stop it from coming back.

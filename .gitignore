@@ -22,3 +22,4 @@ __pycache__/
 
 # The standing list is maintained config, not weekly data, so back it up
 !standing_opportunities.xlsx
+!carry_forward.xlsx

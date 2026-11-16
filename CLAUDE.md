@@ -8,7 +8,7 @@ are newer than the manual; where they disagree, these win.
 ## Weekly run, in order
 
 `run_week.py` runs these steps one command at a time, in this order: `start`, `check`,
-`collect`, `merge`, `finalize`, `add`, `check-final`, `build`. `status` shows where a
+`collect`, `merge`, `finalize`, `carry`, `add`, `check-final`, `build`. `status` shows where a
 week stands. It's the documented way to run the week (see the how-to doc). The
 individual scripts below still work, and are the fallback if `run_week.py` misbehaves.
 
@@ -56,6 +56,27 @@ individual scripts below still work, and are the fallback if `run_week.py` misbe
   CESU agreements) are separate opportunities. Add the number to the title so the
   email shows them as distinct.
 - **Strip `utm_*` tracking tags** from links before they go in the sheet.
+
+## Rules from the 11/12 run
+
+- **No clock times in the Deadline cell.** It holds dates only. Times go in the
+  summary's last sentence. The 11/12 event went out with the date only.
+- **Numbers are link text, not part of the title.** The solicitation or notice
+  number goes in Link1 Text. The one exception is the rule above for two
+  opportunities with identical titles.
+- **HRSA items use HHS** as the abbreviation.
+- **CESU summaries** describe the project only. Leave out the closing sentence
+  about the funding amount and partnership eligibility.
+- **A bold note in a summary:** wrap it in `<strong>...</strong>` in the Summary
+  cell of `_final`. The build passes it through. Keep such rows as they are
+  when the summary writer flags the HTML.
+- **Repeating items:** `run_week.py repeat <Record ID> --until YYYY-MM-DD` saves
+  a row from `_final` into `carry_forward.xlsx`. `run_week.py carry`, run after
+  `finalize` each week, adds the saved rows to that week's `_final` until the
+  date passes. `repeat --list` shows them and `repeat <ID> --stop` removes one.
+  To change a repeating row's text, edit `carry_forward.xlsx`. The NSF MRI
+  (27-500) repeats through January 04, 2027.
+- **To-do list:** the working list is [TODO.md](TODO.md).
 - **Confirm before editing** a pipeline script. Save the original first in
   `OLD Versions/scripts replaced YYYY-MM-DD/`, then test with
   `python replay_week.py <week folder>`, which writes nothing to the week folder.

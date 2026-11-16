@@ -17,8 +17,11 @@ moved into a "backup" folder inside the week folder first.
     py run_week.py collect        run every collector once (asks before SAM.gov)
     py run_week.py merge          make a fresh staging file and open the review page
     py run_week.py finalize       bring in the review export, make the _final copy
+    py run_week.py carry          add the repeating rows (see "repeat") to _final
     py run_week.py add            add the non-grant additions file to _final
-    py run_week.py check-final    run every check the email build will run
+    py run_week.py repeat ID --until YYYY-MM-DD
+                                  make a row in _final come back every week until that date
+    py run_week.py check-final   run every check the email build will run
     py run_week.py build          build the email and open it
     py run_week.py status         what's done and what to do next
 
@@ -536,6 +539,182 @@ def cmd_add(a):
     cmd_check_final(a)
 
 
+# ── repeat / carry (items that come back every week until a date) ────────────
+# Normally an item appears once: the collectors' seen-lists keep it from coming
+# back. `repeat` saves a row from _final into carry_forward.xlsx with an end
+# date; `carry` adds the saved rows to a later week's _final.
+CARRY_FILE = os.path.join(HERE, "carry_forward.xlsx")
+CARRY_EXTRA = ["Repeat Until", "Saved From"]
+
+
+def parse_day(text):
+    """A date from 2027-01-04, 01/04/2027 or 'January 04, 2027' (or an Excel date cell)."""
+    if isinstance(text, datetime.datetime):
+        return text.date()
+    if isinstance(text, datetime.date):
+        return text
+    t = str(text or "").strip()
+    for fmt in ("%Y-%m-%d", "%m/%d/%Y", "%B %d, %Y"):
+        try:
+            return datetime.datetime.strptime(t, fmt).date()
+        except ValueError:
+            pass
+    return None
+
+
+def load_carry():
+    """(header, rows) from carry_forward.xlsx; rows are lists of 18 values. Empty if no file."""
+    import openpyxl
+    if not os.path.exists(CARRY_FILE):
+        return None, []
+    ws = openpyxl.load_workbook(CARRY_FILE).worksheets[0]
+    head = [str(c.value or "").strip() for c in ws[1]]
+    if head[16:18] != CARRY_EXTRA:
+        stop("carry_forward.xlsx doesn't have the expected columns "
+             "(the 16 staging columns, then Repeat Until and Saved From).")
+    rows = [(list(r) + [None] * 18)[:18] for r in ws.iter_rows(min_row=2, values_only=True) if r and any(r)]
+    return head, rows
+
+
+def save_carry(head, rows):
+    import openpyxl
+    if os.path.exists(CARRY_FILE):
+        bdir = os.path.join(HERE, "OLD Versions", "carry_forward backups")
+        os.makedirs(bdir, exist_ok=True)
+        shutil.copy2(CARRY_FILE, os.path.join(bdir, f"carry_forward_{datetime.datetime.now():%Y%m%d_%H%M%S}.xlsx"))
+    wb = openpyxl.Workbook()
+    ws = wb.active
+    ws.title = "Carry Forward"
+    ws.append(head)
+    for r in rows:
+        ws.append(r)
+    wb.save(CARRY_FILE)
+
+
+def show_carry(rows, today):
+    if not rows:
+        say("No items are set to repeat.")
+        return
+    say("Items set to repeat:")
+    for r in rows:
+        until = parse_day(r[16])
+        state = "ended" if (until and until < today) else "active"
+        say(f"  [{state}] until {until:%B %d, %Y}  {r[15] or '(no Record ID)'}  {r[7]}" if until
+            else f"  [no end date!] {r[15]}  {r[7]}")
+
+
+def cmd_repeat(a):
+    import openpyxl
+    today = datetime.date.today()
+    chead, crows = load_carry()
+    if a.list or not a.record_id:
+        show_carry(crows, today)
+        if not a.list:
+            say("\nTo repeat an item:  py run_week.py repeat RECORD_ID --until YYYY-MM-DD")
+        return
+    want = a.record_id.strip().lower()
+
+    if a.stop:
+        keep = [r for r in crows if str(r[15] or "").strip().lower() != want]
+        if len(keep) == len(crows):
+            stop(f"{a.record_id} isn't in carry_forward.xlsx.", ["See the list:  py run_week.py repeat --list"])
+        save_carry(chead, keep)
+        say(f"{a.record_id} will no longer repeat.")
+        return
+
+    until = parse_day(a.until)
+    if not until:
+        stop("Give the last date the item should appear:  --until YYYY-MM-DD")
+    if until < today:
+        stop(f"{until:%B %d, %Y} has already passed.")
+    week = resolve_week(a.week)
+    finals = final_files(week)
+    if not finals:
+        stop("No validated_*_final.xlsx in the week folder.", ["Run:  py run_week.py finalize"])
+    final = finals[-1]
+    ws = openpyxl.load_workbook(final).worksheets[0]
+    fhead = [str(c.value or "").strip() for c in ws[1]][:16]
+    if fhead[:3] != ["Email?", "Eligibility Flag", "Type"] or fhead[15] != "Record ID":
+        stop(f"{os.path.basename(final)} doesn't have the 16 staging columns.")
+    rows = [list(r[:16]) for r in ws.iter_rows(min_row=2, values_only=True) if r and any(r)]
+    hits = [r for r in rows if str(r[15] or "").strip().lower() == want]
+    if not hits:
+        stop(f"No row with Record ID {a.record_id} in {os.path.basename(final)}.",
+             ["Record IDs in this file: " + ", ".join(str(r[15]) for r in rows if r[15] and r[0] == "Y")])
+    if len(hits) > 1:
+        stop(f"{len(hits)} rows share the Record ID {a.record_id}; fix that in _final first.")
+    row = hits[0]
+    row[0] = "Y"
+    new = row + [until.isoformat(), os.path.basename(week)]
+    head = fhead + CARRY_EXTRA
+    replaced = any(str(r[15] or "").strip().lower() == want for r in crows)
+    crows = [r for r in crows if str(r[15] or "").strip().lower() != want] + [new]
+    save_carry(head, crows)
+    say(f"{'Updated' if replaced else 'Saved'}: {row[7]}")
+    say(f"It will be added to each week's _final through {until:%B %d, %Y}, "
+        f"using the summary and links in {os.path.basename(final)}.")
+    say("Each week, after finalize, run:  py run_week.py carry")
+
+
+def cmd_carry(a):
+    import openpyxl
+    week = resolve_week(a.week)
+    st = load_state(week)
+    run_day = folder_date(os.path.basename(week)) or datetime.date.today()
+    _, crows = load_carry()
+    if not crows:
+        say("No items are set to repeat. Nothing to add.")
+        mark(week, st, "carry", added=0)
+        return
+    finals = final_files(week)
+    if not finals:
+        stop("No validated_*_final.xlsx in the week folder.", ["Run:  py run_week.py finalize"])
+    final = finals[-1]
+    wb = openpyxl.load_workbook(final)
+    ws = wb.worksheets[0]
+    fhead = [str(c.value or "").strip() for c in ws[1]]
+    if fhead[:3] != ["Email?", "Eligibility Flag", "Type"] or fhead[15] != "Record ID":
+        stop(f"{os.path.basename(final)} doesn't have the 16 staging columns.")
+    have_ids = {str(r[15]).strip().lower() for r in ws.iter_rows(min_row=2, values_only=True) if r[15]}
+    have_titles = {str(r[7]).strip().lower() for r in ws.iter_rows(min_row=2, values_only=True) if r[7]}
+
+    added, ended, bad = [], [], []
+    for r in crows:
+        until = parse_day(r[16])
+        rid, title = str(r[15] or "").strip().lower(), str(r[7] or "").strip().lower()
+        if not until:
+            bad.append(r)
+        elif until < run_day:
+            ended.append(r)
+        elif (rid and rid in have_ids) or (title and title in have_titles):
+            say(f"  already in _final, not added: {r[7]}")
+        else:
+            added.append(r)
+    if bad:
+        stop("These rows in carry_forward.xlsx have no readable Repeat Until date: "
+             + "; ".join(str(r[7]) for r in bad), ["Fix the date (YYYY-MM-DD) in carry_forward.xlsx and run carry again."])
+    if added:
+        bdir = os.path.join(week, "backup")
+        os.makedirs(bdir, exist_ok=True)
+        saved = shutil.copy2(final, os.path.join(
+            bdir, f"{os.path.basename(final)[:-5]}_before_carry_{datetime.datetime.now():%Y%m%d_%H%M%S}.xlsx"))
+        for r in added:
+            row = list(r[:16])
+            row[0] = "Y"
+            ws.append(row + [None] * (len(fhead) - 16))
+            say(f"  carried forward: [{row[2]}] {row[7]}  (until {parse_day(r[16]):%B %d, %Y})")
+        wb.save(final)
+        say(f"\nAdded {len(added)} repeating row(s) to {os.path.basename(final)}.")
+        say(f"Copy before adding: {os.path.relpath(saved, HERE)}")
+    else:
+        say("No repeating rows needed adding.")
+    for r in ended:
+        say(f"  ended {parse_day(r[16]):%B %d, %Y}, not added: {r[7]}"
+            f"   (remove it with:  py run_week.py repeat \"{r[15]}\" --stop)")
+    mark(week, st, "carry", added=len(added), titles=[str(r[7]) for r in added])
+    say("\nNext: additions and summary rewrites, then:  py run_week.py check-final")
+
+
 # ── check-final ──────────────────────────────────────────────────────────────
 def cmd_check_final(a):
     week = resolve_week(a.week)
@@ -597,7 +776,8 @@ NEXT_HINT = {
     "collect": "py run_week.py collect",
     "merge": "py run_week.py merge",
     "finalize": "review the page, export, then: py run_week.py finalize",
-    "check-final": "additions and summary rewrites into _final, then: py run_week.py check-final",
+    "check-final": "py run_week.py carry (repeating rows), additions and summary rewrites "
+                   "into _final, then: py run_week.py check-final",
     "build": "py run_week.py build",
 }
 
@@ -650,6 +830,12 @@ def main():
     p = add("add", cmd_add, "add non-grant rows to _final")
     p.add_argument("file", nargs="?", help="xlsx with the 16 staging columns "
                                            "(default: the newest non_grant_additions*.xlsx in the week folder)")
+    p = add("repeat", cmd_repeat, "make a row in _final come back every week until a date")
+    p.add_argument("record_id", nargs="?", help="the row's Record ID in _final")
+    p.add_argument("--until", help="last date it should appear, YYYY-MM-DD")
+    p.add_argument("--stop", action="store_true", help="stop repeating this Record ID")
+    p.add_argument("--list", action="store_true", help="show the items set to repeat")
+    add("carry", cmd_carry, "add the repeating rows to this week's _final")
     add("check-final", cmd_check_final, "run every check the email build runs")
     p = add("build", cmd_build, "build the email and open it")
     p.add_argument("--email-date", help="YYYY-MM-DD (default: Monday of this week)")
